@@ -3,12 +3,16 @@ package com.nerdnull.donlate.server.domain;
 import lombok.Getter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 @Getter
 @Entity
 public class PlanEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "planId")
     private Long id;
 
     @Column(nullable = false)
@@ -37,4 +41,8 @@ public class PlanEntity {
 
     @Column(nullable = false)
     private Boolean done;
+
+    @OneToMany(mappedBy = "plan")
+    private List<PlanStateEntity> planStateList = new ArrayList<>();
+
 }

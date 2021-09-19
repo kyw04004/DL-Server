@@ -9,14 +9,18 @@ import java.util.Date;
 public class PaymentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "paymentId")
     private Long id;
 
     @Column(nullable = false)
     private Long amount;
 
     @Column(nullable = false)
-    private Long planStateId;
-
-    @Column(nullable = false)
     private Date date;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="planStateId",insertable = false,updatable = false)
+    private PlanStateEntity planState;
+
+
 }
