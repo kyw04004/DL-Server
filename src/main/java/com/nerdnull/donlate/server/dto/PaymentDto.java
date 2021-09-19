@@ -8,8 +8,8 @@ import java.util.Date;
 @Getter
 @Setter
 public class PaymentDto {
-    private Long id;
+    private Long paymentId;
     private Long amount;
-    private Long planStateId;
+    private PlanStateDto planState;
     private Date date;
 }

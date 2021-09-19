@@ -4,11 +4,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
 public class PlanDto {
-    private Long id;
+    private Long planId;
     private Long admin;
     private Long deposit;
     private Integer latePercent;
@@ -18,4 +19,5 @@ public class PlanDto {
     private String detailLocation;
     private Date date;
     private Boolean done;
+    private List<PlanStateDto> planStateList;
 }

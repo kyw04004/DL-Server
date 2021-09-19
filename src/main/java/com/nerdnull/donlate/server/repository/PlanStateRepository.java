@@ -1,4 +1,7 @@
 package com.nerdnull.donlate.server.repository;
 
-public class PlanStateRepository {
+import com.nerdnull.donlate.server.domain.PlanStateEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PlanStateRepository extends JpaRepository<PlanStateEntity,Long> {
 }
