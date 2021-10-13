@@ -1,0 +1,27 @@
+<included>
+    <property name="log.folder" value="./logs"/>
+    <property name="log.level" value="INFO"/>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>${log.level}</level>
+        </filter>
+        <file>${log.folder}/dl-server.log</file>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${log.folder}/dl-server-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+
+            <maxFileSize>100MB</maxFileSize>
+            <maxHistory>20</maxHistory>
+            <totalSizeCap>1GB</totalSizeCap>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%-5level %d{yyyy-MM-dd HH:mm:ss} [%thread] %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="${log.level}">
+        <appender-ref ref="FILE"/>
+    </root>
+</included>

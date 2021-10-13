@@ -1,0 +1,221 @@
+(INFO (ERROR(INFO (ERROR(INFO (INFO (DEBUG(DEBUG(DEBUG(DEBUG(INFO (DEBUG(DEBUG(DEBUG(DEBUG(INFO (DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(INFO (DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(INFO (INFO (INFO (INFO (INFO (INFO (INFO (INFO (DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(INFO (DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(INFO (DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(DEBUG(INFO (INFO (INFO INFO  2021-10-10 17:04:59 [main] c.n.donlate.server.ServerApplication - 1234
+ERROR 2021-10-10 17:04:59 [main] c.n.donlate.server.ServerApplication - asdf
+INFO  2021-10-10 17:04:59 [restartedMain] c.n.donlate.server.ServerApplication - 1234
+ERROR 2021-10-10 17:04:59 [restartedMain] c.n.donlate.server.ServerApplication - asdf
+INFO  2021-10-10 17:04:59 [restartedMain] c.n.donlate.server.ServerApplication - Starting ServerApplication using Java 16.0.2 on DESKTOP-VS8VF3J with PID 9936 (C:\Users\jungh\DL-Server\build\classes\java\main started by jungh in C:\Users\jungh\DL-Server)
+INFO  2021-10-10 17:04:59 [restartedMain] c.n.donlate.server.ServerApplication - The following profiles are active: local
+DEBUG 2021-10-10 17:04:59 [restartedMain] o.s.boot.SpringApplication - Loading source class com.nerdnull.donlate.server.ServerApplication
+DEBUG 2021-10-10 17:04:59 [restartedMain] o.s.b.d.restart.ChangeableUrls - Matching URLs for reloading : [file:/C:/Users/jungh/DL-Server/build/classes/java/main/, file:/C:/Users/jungh/DL-Server/build/resources/main/]
+DEBUG 2021-10-10 17:04:59 [restartedMain] o.s.b.d.settings.DevToolsSettings - Included patterns for restart : []
+DEBUG 2021-10-10 17:04:59 [restartedMain] o.s.b.d.settings.DevToolsSettings - Excluded patterns for restart : [/spring-boot-starter-[\w-]+/, /spring-boot/(bin|build|out)/, /spring-boot-starter/(bin|build|out)/, /spring-boot-devtools/(bin|build|out)/, /spring-boot-actuator/(bin|build|out)/, /spring-boot-autoconfigure/(bin|build|out)/]
+INFO  2021-10-10 17:04:59 [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+DEBUG 2021-10-10 17:04:59 [restartedMain] o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@6190ab67
+DEBUG 2021-10-10 17:04:59 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+DEBUG 2021-10-10 17:04:59 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.internalCachingMetadataReaderFactory'
+DEBUG 2021-10-10 17:04:59 [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner - Ignored because not a concrete top-level class: file [C:\Users\jungh\DL-Server\build\classes\java\main\com\nerdnull\donlate\server\repository\PaymentRepository.class]
+INFO  2021-10-10 17:05:00 [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.AutoConfigurationPackages'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Scanning for JPA repositories in packages com.nerdnull.donlate.server.
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [C:\Users\jungh\DL-Server\build\classes\java\main\com\nerdnull\donlate\server\repository\PaymentRepository.class]
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [C:\Users\jungh\DL-Server\build\classes\java\main\com\nerdnull\donlate\server\repository\PlanRepository.class]
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [C:\Users\jungh\DL-Server\build\classes\java\main\com\nerdnull\donlate\server\repository\PlanStateRepository.class]
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [C:\Users\jungh\DL-Server\build\classes\java\main\com\nerdnull\donlate\server\repository\UserRepository.class]
+INFO  2021-10-10 17:05:00 [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 45 ms. Found 4 JPA repository interfaces.
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'propertySourcesPlaceholderConfigurer'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'emBeanDefinitionRegistrarPostProcessor'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.sql.init.dependency.DatabaseInitializationDependencyConfigurer$DependsOnDatabaseInitializationPostProcessor'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.devtools.autoconfigure.DevToolsDataSourceAutoConfiguration$DatabaseShutdownExecutorEntityManagerFactoryDependsOnPostProcessor'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerProcessor'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerFactory'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.config.internalTransactionalEventListenerFactory'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalPersistenceAnnotationProcessor'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.context.internalConfigurationPropertiesBinder'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.context.internalConfigurationPropertiesBinderFactory'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'persistenceExceptionTranslationPostProcessor'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'persistenceExceptionTranslationPostProcessor' via factory method to bean named 'environment'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dataSourceScriptDatabaseInitializer'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'transactionAttributeSource'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'transactionInterceptor'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'transactionInterceptor' via factory method to bean named 'transactionAttributeSource'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'org.springframework.transaction.config.internalTransactionAdvisor' via factory method to bean named 'transactionAttributeSource'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'org.springframework.transaction.config.internalTransactionAdvisor' via factory method to bean named 'transactionInterceptor'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.sql.init.DataSourceInitializationConfiguration'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dataSource'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.context.properties.BoundConfigurationProperties'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.c.p.s.ConfigurationPropertySourcesPropertyResolver$DefaultResolver - Found key 'userName' in PropertySource 'systemProperties' with value of type String
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'dataSource' via factory method to bean named 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'spring.sql.init-org.springframework.boot.autoconfigure.sql.init.SqlInitializationProperties'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'dataSourceScriptDatabaseInitializer' via factory method to bean named 'dataSource'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'dataSourceScriptDatabaseInitializer' via factory method to bean named 'spring.sql.init-org.springframework.boot.autoconfigure.sql.init.SqlInitializationProperties'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'inMemoryDatabaseShutdownExecutor'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.devtools.autoconfigure.DevToolsDataSourceAutoConfiguration'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'inMemoryDatabaseShutdownExecutor' via factory method to bean named 'dataSource'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'inMemoryDatabaseShutdownExecutor' via factory method to bean named 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'entityManagerFactory'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'spring.jpa-org.springframework.boot.autoconfigure.orm.jpa.JpaProperties'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'spring.jpa.hibernate-org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration' via constructor to bean named 'dataSource'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration' via constructor to bean named 'spring.jpa-org.springframework.boot.autoconfigure.orm.jpa.JpaProperties'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration' via constructor to bean named 'org.springframework.beans.factory.support.DefaultListableBeanFactory@7123caaa'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration' via constructor to bean named 'spring.jpa.hibernate-org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'hikariPoolDataSourceMetadataProvider'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.jdbc.metadata.DataSourcePoolMetadataProvidersConfiguration$HikariPoolDataSourceMetadataProviderConfiguration'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'entityManagerFactoryBuilder'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jpaVendorAdapter'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'entityManagerFactoryBuilder' via factory method to bean named 'jpaVendorAdapter'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'entityManagerFactory' via factory method to bean named 'entityManagerFactoryBuilder'
+DEBUG 2021-10-10 17:05:00 [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+INFO  2021-10-10 17:05:00 [restartedMain] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+INFO  2021-10-10 17:05:00 [restartedMain] org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+INFO  2021-10-10 17:05:00 [restartedMain] o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+INFO  2021-10-10 17:05:00 [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+INFO  2021-10-10 17:05:00 [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+INFO  2021-10-10 17:05:00 [restartedMain] org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+INFO  2021-10-10 17:05:01 [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+INFO  2021-10-10 17:05:01 [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'serverApplication'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.jmx.JmxAutoConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'org.springframework.boot.autoconfigure.jmx.JmxAutoConfiguration' via constructor to bean named 'environment'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'mbeanExporter'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'objectNamingStrategy'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'mbeanExporter' via factory method to bean named 'objectNamingStrategy'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'mbeanExporter' via factory method to bean named 'org.springframework.beans.factory.support.DefaultListableBeanFactory@7123caaa'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'mbeanServer'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.jmx.support.JmxUtils - Found MBeanServer: com.sun.jmx.mbeanserver.JmxMBeanServer@4c3e4790
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.admin.SpringApplicationAdminJmxAutoConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'springApplicationAdminRegistrar'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'springApplicationAdminRegistrar' via factory method to bean named 'environment'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application Admin MBean registered with name 'org.springframework.boot:type=Admin,name=SpringApplication'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.aop.AopAutoConfiguration$AspectJAutoProxyingConfiguration$CglibAutoProxyConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.aop.AopAutoConfiguration$AspectJAutoProxyingConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.aop.AopAutoConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.availability.ApplicationAvailabilityAutoConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'applicationAvailability'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.transaction.jta.JtaAutoConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceJmxConfiguration$Hikari'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'org.springframework.boot.autoconfigure.jdbc.DataSourceJmxConfiguration$Hikari' via constructor to bean named 'dataSource'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceJmxConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration$PooledDataSourceConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.jdbc.metadata.DataSourcePoolMetadataProvidersConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.context.properties.EnableConfigurationPropertiesRegistrar.methodValidationExcludeFilter'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'transactionManager'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'platformTransactionManagerCustomizers'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'spring.transaction-org.springframework.boot.autoconfigure.transaction.TransactionProperties'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.context.ConfigurationPropertiesAutoConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.context.LifecycleAutoConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'lifecycleProcessor'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'spring.lifecycle-org.springframework.boot.autoconfigure.context.LifecycleProperties'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'lifecycleProcessor' via factory method to bean named 'spring.lifecycle-org.springframework.boot.autoconfigure.context.LifecycleProperties'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.dao.PersistenceExceptionTranslationAutoConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'taskExecutorBuilder'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'spring.task.execution-org.springframework.boot.autoconfigure.task.TaskExecutionProperties'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'taskExecutorBuilder' via factory method to bean named 'spring.task.execution-org.springframework.boot.autoconfigure.task.TaskExecutionProperties'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.data.jpa.util.JpaMetamodelCacheCleanup'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.data.jpa.repository.support.JpaEvaluationContextExtension'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'planStateRepository'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jpaMappingContext'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.d.j.r.c.JpaMetamodelMappingContextFactoryBean - Initializing JpaMetamodelMappingContext…
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.d.j.r.c.JpaMetamodelMappingContextFactoryBean - Finished initializing JpaMetamodelMappingContext!
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.o.j.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler - Creating new EntityManager for shared EntityManager invocation
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.o.j.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler - Creating new EntityManager for shared EntityManager invocation
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.beans.CachedIntrospectionResults - Not strongly caching class [com.nerdnull.donlate.server.domain.PlanStateEntity] because it is not cache-safe
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.beans.CachedIntrospectionResults - Not strongly caching class [com.nerdnull.donlate.server.domain.UserEntity] because it is not cache-safe
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.beans.CachedIntrospectionResults - Not strongly caching class [com.nerdnull.donlate.server.domain.PlanEntity] because it is not cache-safe
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.beans.CachedIntrospectionResults - Not strongly caching class [com.nerdnull.donlate.server.domain.PaymentEntity] because it is not cache-safe
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.d.r.c.s.RepositoryFactorySupport - Initializing repository instance for com.nerdnull.donlate.server.repository.PlanStateRepository…
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.o.j.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler - Creating new EntityManager for shared EntityManager invocation
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.d.r.c.s.RepositoryFactorySupport - Finished creation of repository instance for {}.
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'userRepository'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.o.j.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler - Creating new EntityManager for shared EntityManager invocation
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.d.r.c.s.RepositoryFactorySupport - Initializing repository instance for com.nerdnull.donlate.server.repository.UserRepository…
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.o.j.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler - Creating new EntityManager for shared EntityManager invocation
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.d.r.c.s.RepositoryFactorySupport - Finished creation of repository instance for {}.
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'paymentRepository'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.o.j.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler - Creating new EntityManager for shared EntityManager invocation
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.d.r.c.s.RepositoryFactorySupport - Initializing repository instance for com.nerdnull.donlate.server.repository.PaymentRepository…
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.o.j.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler - Creating new EntityManager for shared EntityManager invocation
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.d.r.c.s.RepositoryFactorySupport - Finished creation of repository instance for {}.
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'planRepository'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.o.j.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler - Creating new EntityManager for shared EntityManager invocation
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.d.r.c.s.RepositoryFactorySupport - Initializing repository instance for com.nerdnull.donlate.server.repository.PlanRepository…
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.o.j.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler - Creating new EntityManager for shared EntityManager invocation
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.d.r.c.s.RepositoryFactorySupport - Finished creation of repository instance for {}.
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.info.ProjectInfoAutoConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'spring.info-org.springframework.boot.autoconfigure.info.ProjectInfoProperties'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'org.springframework.boot.autoconfigure.info.ProjectInfoAutoConfiguration' via constructor to bean named 'spring.info-org.springframework.boot.autoconfigure.info.ProjectInfoProperties'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.jdbc.JdbcTemplateConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'spring.jdbc-org.springframework.boot.autoconfigure.jdbc.JdbcProperties'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'jdbcTemplate' via factory method to bean named 'dataSource'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'jdbcTemplate' via factory method to bean named 'spring.jdbc-org.springframework.boot.autoconfigure.jdbc.JdbcProperties'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.jdbc.NamedParameterJdbcTemplateConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'namedParameterJdbcTemplate'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'namedParameterJdbcTemplate' via factory method to bean named 'jdbcTemplate'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.task.TaskSchedulingAutoConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'scheduledBeanLazyInitializationExcludeFilter'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'taskSchedulerBuilder'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'spring.task.scheduling-org.springframework.boot.autoconfigure.task.TaskSchedulingProperties'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'taskSchedulerBuilder' via factory method to bean named 'spring.task.scheduling-org.springframework.boot.autoconfigure.task.TaskSchedulingProperties'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration$JdbcTransactionManagerConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration$EnableTransactionManagementConfiguration$CglibAutoProxyConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration$EnableTransactionManagementConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration$TransactionTemplateConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'transactionTemplate'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'transactionTemplate' via factory method to bean named 'transactionManager'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'spring.devtools-org.springframework.boot.devtools.autoconfigure.DevToolsProperties'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartConfiguration' via constructor to bean named 'spring.devtools-org.springframework.boot.devtools.autoconfigure.DevToolsProperties'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'restartingClassPathChangedEventListener'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'fileSystemWatcherFactory'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'restartingClassPathChangedEventListener' via factory method to bean named 'fileSystemWatcherFactory'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'classPathFileSystemWatcher'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'classPathRestartStrategy'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'classPathFileSystemWatcher' via factory method to bean named 'fileSystemWatcherFactory'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'classPathFileSystemWatcher' via factory method to bean named 'classPathRestartStrategy'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'conditionEvaluationDeltaLoggingListener'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$LiveReloadConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'optionalLiveReloadServer'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'liveReloadServer' via factory method to bean named 'spring.devtools-org.springframework.boot.devtools.autoconfigure.DevToolsProperties'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'optionalLiveReloadServer' via factory method to bean named 'liveReloadServer'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.d.livereload.LiveReloadServer - Starting live reload server on port 35729
+INFO  2021-10-10 17:05:01 [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'liveReloadServerEventListener'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'liveReloadServerEventListener' via factory method to bean named 'optionalLiveReloadServer'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration'
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.j.e.a.AnnotationMBeanExporter - Autodetecting user-defined JMX MBeans
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.c.p.s.ConfigurationPropertySourcesPropertyResolver$DefaultResolver - Found key 'spring.liveBeansView.mbeanDomain' in PropertySource 'systemProperties' with value of type String
+INFO  2021-10-10 17:05:01 [restartedMain] c.n.donlate.server.ServerApplication - Started ServerApplication in 2.21 seconds (JVM running for 2.908)
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.a.ApplicationAvailabilityBean - Application availability state LivenessState changed to CORRECT
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.boot.devtools.restart.Restarter - Creating new Restarter for thread Thread[main,5,main]
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.boot.devtools.restart.Restarter - Immediately restarting application
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.boot.devtools.restart.Restarter - Created RestartClassLoader org.springframework.boot.devtools.restart.classloader.RestartClassLoader@317fb8b7
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.boot.devtools.restart.Restarter - Starting application com.nerdnull.donlate.server.ServerApplication with URLs [file:/C:/Users/jungh/DL-Server/build/classes/java/main/, file:/C:/Users/jungh/DL-Server/build/resources/main/]
+DEBUG 2021-10-10 17:05:01 [restartedMain] o.s.b.a.ApplicationAvailabilityBean - Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+DEBUG 2021-10-10 17:05:01 [SpringApplicationShutdownHook] o.s.c.a.AnnotationConfigApplicationContext - Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@6190ab67, started on Sun Oct 10 17:04:59 KST 2021
+DEBUG 2021-10-10 17:05:01 [SpringApplicationShutdownHook] o.s.b.c.p.s.ConfigurationPropertySourcesPropertyResolver$DefaultResolver - Found key 'spring.liveBeansView.mbeanDomain' in PropertySource 'systemProperties' with value of type String
+DEBUG 2021-10-10 17:05:01 [SpringApplicationShutdownHook] o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+DEBUG 2021-10-10 17:05:01 [SpringApplicationShutdownHook] o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+INFO  2021-10-10 17:05:01 [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+INFO  2021-10-10 17:05:01 [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+INFO  2021-10-10 17:05:01 [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
