@@ -9,7 +9,7 @@ import java.util.List;
 @Setter
 
 public class PlanStateDto {
-    private Long id;
+    private Long planStateId;
     private UserDto user;
     private PlanDto plan;
     private Integer lateState;//0:출석, 1:지각, 2:결석

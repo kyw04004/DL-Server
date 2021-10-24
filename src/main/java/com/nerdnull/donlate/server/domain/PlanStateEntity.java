@@ -28,5 +28,4 @@ public class PlanStateEntity {
     @OneToMany(mappedBy="planState")
     private List<PaymentEntity> paymentList = new ArrayList<>();
 
-
 }
