@@ -10,6 +10,8 @@ import java.util.List;
 
 public class UserDto {
     private Long id;
+    private String nickName;
+    private String email;
+    private Long point;
     private List<PlanStateDto> planStateList;
-    //kakao Coming soon..
 }
