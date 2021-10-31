@@ -10,6 +10,6 @@ import java.util.Date;
 public class PaymentDto {
     private Long paymentId;
     private Long amount;
-    private PlanStateDto planState;
     private Date date;
+    private PlanStateDto planState;
 }

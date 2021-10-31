@@ -12,7 +12,7 @@ public class PlanStateEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "planStateId")
-    private Long id;
+    private Long planStateId;
 
     @Column(nullable = false)
     private Integer lateState;//0:출석, 1:지각, 2:결석

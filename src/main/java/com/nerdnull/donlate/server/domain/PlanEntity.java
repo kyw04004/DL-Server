@@ -1,6 +1,7 @@
 package com.nerdnull.donlate.server.domain;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ public class PlanEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "planId")
-    private Long id;
+    private Long planId;
 
     @Column(nullable = false)
     private Long admin;
@@ -44,5 +45,4 @@ public class PlanEntity {
 
     @OneToMany(mappedBy = "plan")
     private List<PlanStateEntity> planStateList = new ArrayList<>();
-
 }
