@@ -7,9 +7,8 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@Entity
 @Data
+@Entity
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,4 +26,7 @@ public class UserEntity {
 
     @OneToMany(mappedBy = "user")
     private List<PlanStateEntity> planStateList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<PaymentEntity> paymentList = new ArrayList<>();
 }

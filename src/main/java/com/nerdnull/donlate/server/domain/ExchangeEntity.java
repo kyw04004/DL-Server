@@ -1,11 +1,12 @@
 package com.nerdnull.donlate.server.domain;
 
+import lombok.Data;
 import lombok.Getter;
 
 import javax.persistence.*;
 import java.util.Date;
 
-@Getter
+@Data
 @Entity
 public class ExchangeEntity {
     @Id

@@ -7,9 +7,8 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@Entity
 @Data
+@Entity
 public class PlanStateEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,8 +31,5 @@ public class PlanStateEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="planId", insertable = false, updatable = false)
     private PlanEntity plan;
-
-    @OneToMany(mappedBy="planState")
-    private List<PaymentEntity> paymentList = new ArrayList<>();
 
 }

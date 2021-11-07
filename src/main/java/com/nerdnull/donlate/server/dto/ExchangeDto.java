@@ -7,8 +7,6 @@ import lombok.Setter;
 
 import java.util.Date;
 
-@Getter
-@Setter
 @Data
 @AllArgsConstructor
 public class ExchangeDto {

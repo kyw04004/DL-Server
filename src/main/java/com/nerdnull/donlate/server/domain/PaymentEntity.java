@@ -1,10 +1,14 @@
 package com.nerdnull.donlate.server.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
-@Getter
+
+@Data
 @Entity
 public class PaymentEntity {
     @Id
@@ -18,7 +22,10 @@ public class PaymentEntity {
     @Column(nullable = false)
     private Date date;
 
+    @Column(nullable = false)
+    private Long userId;
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="planStateId",insertable = false,updatable = false)
-    private PlanStateEntity planState;
+    @JoinColumn(name="userId",insertable = false,updatable = false)
+    private UserEntity user;
 }

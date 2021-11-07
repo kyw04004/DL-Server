@@ -7,8 +7,6 @@ import lombok.Setter;
 
 import java.util.List;
 
-@Getter
-@Setter
 @Data
 @AllArgsConstructor
 public class UserDto {
@@ -18,5 +16,5 @@ public class UserDto {
     private String email;
     private Long point;
     private List<PlanStateDto> planStateList;
-
+    private List<PaymentDto> paymentList;
 }

@@ -4,11 +4,8 @@ import lombok.*;
 
 import java.util.List;
 
-@Getter
-@Setter
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 public class PlanStateDto {
 
     private Long planStateId;
@@ -17,6 +14,5 @@ public class PlanStateDto {
     private UserDto user;
     private PlanDto plan;
     private Integer lateState;//0:출석, 1:지각, 2:결석
-    private List<PaymentDto> paymentList;
 
 }

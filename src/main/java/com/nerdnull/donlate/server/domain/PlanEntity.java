@@ -10,9 +10,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Getter
-@Entity
 @Data
+@Entity
 public class PlanEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,5 +47,4 @@ public class PlanEntity {
 
     @OneToMany(mappedBy = "plan",fetch = FetchType.EAGER)
     private List<PlanStateEntity> planStateList = new ArrayList<>();
-
 }
