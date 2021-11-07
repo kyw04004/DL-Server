@@ -43,11 +43,5 @@ public class PlanStateService {
     public PlanStateDto setPlanState(PlanStateDto planStateDto){
         PlanStateEntity e = planStateRepository.save(planStateMapper.toEntity(planStateDto));
         return planStateMapper.toDto(e);
-        //List<PlanStateEntity> planStateList = maybePlan.getPlanStateList();
-        //log.info("getlist: {}",planStateList);
-        //log.info("get plan id: {}",planStateDto.getPlanId());
-        //log.info("get plan id: {}",maybePlan.getPlanId());
-        //log.info("get plan list: {}",maybePlan.getPlanStateList());
-        //log.info("to dto test: {}",planStateMapper.toDto(x).getPlan());
     }
 }

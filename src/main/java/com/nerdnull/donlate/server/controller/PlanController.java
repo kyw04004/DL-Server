@@ -1,6 +1,7 @@
 package com.nerdnull.donlate.server.controller;
 
 import com.nerdnull.donlate.server.controller.request.CreatePlanRequest;
+import com.nerdnull.donlate.server.controller.request.CreatePlanStateRequest;
 import com.nerdnull.donlate.server.controller.request.UpdatePlanRequest;
 import com.nerdnull.donlate.server.domain.PlanEntity;
 import com.nerdnull.donlate.server.domain.PlanStateEntity;
@@ -38,7 +39,6 @@ public class PlanController {
         this.planRepository = planRepository;
     }
 
-    @ResponseStatus(value = HttpStatus.CREATED)
     @PostMapping("/create")
     public Response<Integer> create(@RequestBody CreatePlanRequest planRequest) {
         try {
@@ -60,9 +60,20 @@ public class PlanController {
     }
 
     @PostMapping("/update")
-    public void update(@RequestBody UpdatePlanRequest updatePlanRequest) throws Exception {
-        updatePlanRequest.isNotNull();
-        PlanDto updatedPlan = this.planService.updatePlan(updatePlanRequest);
+    public Response<Integer> update(@RequestBody UpdatePlanRequest updatePlanRequest) {
+        try {
+            updatePlanRequest.isNotNull();
+            this.planService.updatePlan(updatePlanRequest);
+        }
+        catch (IllegalAccessException e){
+            log.error(e.getMessage(), e);
+            return Response.error(Response.BAD_REQUEST, e.getMessage());
+        }
+        catch (Exception e){
+            log.error(e.getMessage(), e);
+            return Response.error(Response.INTERNAL_SERVER_ERROR, e.getMessage());
+        }
+        return Response.ok(1);
     }
 
     @PostMapping("/delete/{planId}")
@@ -70,6 +81,25 @@ public class PlanController {
 
         this.planService.deletePlan(planId);
     }
+
+    @PostMapping("/approve")
+    public Response<Integer> approve(@RequestBody CreatePlanStateRequest planStateRequest){
+        try {
+            planStateRequest.isNotNull();
+            PlanStateDto planStateDto = new PlanStateDto(null, planStateRequest.getPlanId(), planStateRequest.getUserId(), null,null,0);
+            this.planStateService.setPlanState(planStateDto);
+        }
+        catch (IllegalAccessException e){
+            log.error(e.getMessage(), e);
+            return Response.error(Response.BAD_REQUEST, e.getMessage());
+        }
+        catch (Exception e){
+            log.error(e.getMessage(), e);
+            return Response.error(Response.INTERNAL_SERVER_ERROR, e.getMessage());
+        }
+        return Response.ok(1);
+    }
+
     @GetMapping("/details")
     public Response<PlanDetailResponse> getDetails(@RequestParam Long planId) {
         try {
