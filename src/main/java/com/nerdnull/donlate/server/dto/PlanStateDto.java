@@ -13,5 +13,4 @@ public class PlanStateDto {
     private UserDto user;
     private PlanDto plan;
     private Integer lateState;//0:출석, 1:지각, 2:결석
-    private List<PaymentDto> paymentList;
 }

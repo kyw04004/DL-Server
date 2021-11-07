@@ -24,9 +24,4 @@ public class PlanStateEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="planId",insertable = false,updatable = false)
     private PlanEntity plan;
-
-    @OneToMany(mappedBy="planState")
-    private List<PaymentEntity> paymentList = new ArrayList<>();
-
-
 }

@@ -14,4 +14,5 @@ public class UserDto {
     private String email;
     private Long point;
     private List<PlanStateDto> planStateList;
+    private List<PaymentDto> paymentList;
 }
