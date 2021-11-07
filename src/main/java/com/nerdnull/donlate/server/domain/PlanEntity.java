@@ -1,14 +1,13 @@
 package com.nerdnull.donlate.server.domain;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Getter
+@Data
 @Entity
 public class PlanEntity {
     @Id

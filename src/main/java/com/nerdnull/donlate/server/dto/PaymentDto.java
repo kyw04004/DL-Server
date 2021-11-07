@@ -1,12 +1,12 @@
 package com.nerdnull.donlate.server.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 import java.util.Date;
 
-@Getter
-@Setter
+@Data
+@AllArgsConstructor
 public class PaymentDto {
     private Long paymentId;
     private Long amount;

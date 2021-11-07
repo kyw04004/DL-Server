@@ -1,13 +1,10 @@
 package com.nerdnull.donlate.server.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
-import java.util.List;
-
-@Getter
-@Setter
-
+@Data
+@AllArgsConstructor
 public class PlanStateDto {
     private Long planStateId;
     private UserDto user;

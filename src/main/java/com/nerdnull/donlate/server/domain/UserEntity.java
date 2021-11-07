@@ -1,12 +1,12 @@
 package com.nerdnull.donlate.server.domain;
 
-import lombok.Getter;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
+@Data
 @Entity
 public class UserEntity {
     @Id
@@ -26,6 +26,6 @@ public class UserEntity {
     @OneToMany(mappedBy = "user")
     private List<PlanStateEntity> planStateList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "planState")
+    @OneToMany(mappedBy = "user")
     private List<PaymentEntity> paymentList = new ArrayList<>();
 }
