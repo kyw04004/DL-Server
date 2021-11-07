@@ -18,6 +18,9 @@ public class PaymentEntity {
     @Column(nullable = false)
     private Date date;
 
+    @Column(nullable = false)
+    private Long userId;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="userId",insertable = false,updatable = false)
     private UserEntity user;

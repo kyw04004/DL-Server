@@ -11,6 +11,6 @@ public class PaymentDto {
     private Long paymentId;
     private Long amount;
     private Date date;
-    private PlanStateDto planState;
+    private Long userId;
     private UserDto user;
 }
