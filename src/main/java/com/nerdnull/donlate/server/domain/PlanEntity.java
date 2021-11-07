@@ -1,6 +1,9 @@
 package com.nerdnull.donlate.server.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -9,11 +12,12 @@ import java.util.List;
 
 @Getter
 @Entity
+@Data
 public class PlanEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "planId")
-    private Long id;
+    private Long planId;
 
     @Column(nullable = false)
     private Long admin;
@@ -42,7 +46,7 @@ public class PlanEntity {
     @Column(nullable = false)
     private Boolean done;
 
-    @OneToMany(mappedBy = "plan")
+    @OneToMany(mappedBy = "plan",fetch = FetchType.EAGER)
     private List<PlanStateEntity> planStateList = new ArrayList<>();
 
 }

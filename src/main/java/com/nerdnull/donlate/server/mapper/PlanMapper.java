@@ -10,6 +10,7 @@ public interface PlanMapper extends GenericMapper<PlanDto, PlanEntity> {
 
     @Mapping(target="planStateList", ignore = true)
     PlanDto toDto(PlanEntity planEntity);
+
     @Mapping(target="planStateList", ignore = true)
     PlanEntity toEntity(PlanDto planDto);
 }

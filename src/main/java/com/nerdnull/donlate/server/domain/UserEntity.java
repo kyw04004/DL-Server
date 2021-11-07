@@ -1,5 +1,6 @@
 package com.nerdnull.donlate.server.domain;
 
+import lombok.Data;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -8,15 +9,22 @@ import java.util.List;
 
 @Getter
 @Entity
+@Data
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "userId")
-    private Long id;
+    private Long userId;
+
+    @Column(nullable = false)
+    private String nickName;
+
+    @Column(nullable = false)
+    private String email;
+
+    @Column(nullable = false)
+    private Long point;
 
     @OneToMany(mappedBy = "user")
     private List<PlanStateEntity> planStateList = new ArrayList<>();
-
-
-
 }

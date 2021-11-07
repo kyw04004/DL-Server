@@ -10,7 +10,7 @@ public class PaymentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "paymentId")
-    private Long id;
+    private Long paymentId;
 
     @Column(nullable = false)
     private Long amount;
@@ -21,6 +21,4 @@ public class PaymentEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="planStateId",insertable = false,updatable = false)
     private PlanStateEntity planState;
-
-
 }

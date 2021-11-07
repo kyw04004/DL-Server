@@ -1,0 +1,22 @@
+<included>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <withJansi>false</withJansi>
+        <immediateFlush>true</immediateFlush>
+        <encoder>
+            <pattern>%clr(%-5level) %clr(%d{yyyy-MM-dd HH:mm:ss}){faint} %clr([%thread]){magenta} %clr(%logger{36}){cyan} - %msg%n%throwable</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="Console"/>
+    </root>
+
+    <logger name="org.springframework" level="WARN" additivity="false">
+        <appender-ref ref="Console"/>
+    </logger>
+    <logger name="com.nerdnull.donlate.server" level="DEBUG" additivity="false">
+        <appender-ref ref="Console"/>
+    </logger>
+</included>
