@@ -12,4 +12,5 @@ public class PaymentDto {
     private Long amount;
     private Date date;
     private PlanStateDto planState;
+    private UserDto user;
 }

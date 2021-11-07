@@ -25,4 +25,7 @@ public class UserEntity {
 
     @OneToMany(mappedBy = "user")
     private List<PlanStateEntity> planStateList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "planState")
+    private List<PaymentEntity> paymentList = new ArrayList<>();
 }

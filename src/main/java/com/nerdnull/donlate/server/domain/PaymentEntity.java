@@ -19,8 +19,6 @@ public class PaymentEntity {
     private Date date;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="planStateId",insertable = false,updatable = false)
-    private PlanStateEntity planState;
-
-
+    @JoinColumn(name="userId",insertable = false,updatable = false)
+    private UserEntity user;
 }
