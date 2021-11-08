@@ -49,6 +49,21 @@ public class UserService {
         return saved.getUserId();
     }
 
+    public void exchange(Long userId, Long point) throws Exception {
+        Optional<UserEntity> target = this.userRepository.findById(userId);
+        if(target.isEmpty())
+            throw new IllegalArgumentException("Not exist user");
+
+        if(target.get().getPoint() < point) {
+            throw new Exception("The user's point is insufficient.");
+        }
+
+        UserDto user = this.userMapper.toDto(target.get());
+        user.setPoint(target.get().getPoint() - point);
+
+        this.userRepository.save(this.userMapper.toEntity(user));
+    }
+
     public void delete(Long userId) {
         Optional<UserEntity> target = this.userRepository.findById(userId);
         target.ifPresent(userRepository::delete);

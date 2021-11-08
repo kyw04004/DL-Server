@@ -14,13 +14,16 @@ public class ExchangeEntity {
     private Long exchangeId;
 
     @Column(nullable = false)
+    private String bank;
+
+    @Column(nullable = false)
     private String account;
 
     @Column(nullable = false)
     private Long amount;
 
     @Column(nullable = false)
-    private String nickName;
+    private String name;
 
     @Column(nullable = false)
     private Date requestedAt;

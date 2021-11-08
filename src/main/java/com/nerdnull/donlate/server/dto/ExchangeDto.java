@@ -10,9 +10,10 @@ import java.util.Date;
 public class ExchangeDto {
 
     private Long exchangeId;
+    private String bank;
     private String account;
     private Long amount;
-    private String nickName;
+    private String name;
     private Date requestedAt;
 
 }
