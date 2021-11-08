@@ -12,6 +12,8 @@ import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @Slf4j
 public class UserService {
@@ -27,16 +29,11 @@ public class UserService {
     }
 
     public UserDto getUser(Long userId) {
-        try {
-            UserEntity maybeUser = userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("Not exists user"));
-            UserDto user = userMapper.toDto(maybeUser);
-            user.setPlanStateList(planStateMapper.toDtoList(maybeUser.getPlanStateList()));
-            user.setPaymentList(paymentMapper.toDtoList(maybeUser.getPaymentList()));
-            return user;
-        }
-        catch (Exception e){
-            throw e;
-        }
+        UserEntity maybeUser = userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("Not exists user"));
+        UserDto user = userMapper.toDto(maybeUser);
+        user.setPlanStateList(planStateMapper.toDtoList(maybeUser.getPlanStateList()));
+        user.setPaymentList(paymentMapper.toDtoList(maybeUser.getPaymentList()));
+        return user;
     }
 
     public Long login(UserDto user){
@@ -51,5 +48,12 @@ public class UserService {
 
         UserEntity saved = this.userRepository.save(userMapper.toEntity(user));
         return saved.getUserId();
+    }
+
+    public void delete(Long userId) {
+        Optional<UserEntity> target = this.userRepository.findById(userId);
+        target.ifPresent(userRepository::delete);
+        if(target.isEmpty())
+            throw new IllegalArgumentException("Not exist user");
     }
 }
