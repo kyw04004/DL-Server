@@ -1,15 +1,14 @@
 package com.nerdnull.donlate.server.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Getter
-@Setter
+@Data
+@AllArgsConstructor
 public class PlanDto {
+
     private Long planId;
     private Long admin;
     private Long deposit;
@@ -20,5 +19,6 @@ public class PlanDto {
     private String detailLocation;
     private Date date;
     private Boolean done;
-    private List<PlanStateDto> planStateList= new ArrayList<>();
+    private List<PlanStateDto> planStateList;
+
 }

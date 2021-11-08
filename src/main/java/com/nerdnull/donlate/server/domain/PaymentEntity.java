@@ -1,10 +1,11 @@
 package com.nerdnull.donlate.server.domain;
 
-import lombok.Getter;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
-@Getter
+
+@Data
 @Entity
 public class PaymentEntity {
     @Id
