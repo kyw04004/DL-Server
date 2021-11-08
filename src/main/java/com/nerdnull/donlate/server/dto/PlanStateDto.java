@@ -2,8 +2,6 @@ package com.nerdnull.donlate.server.dto;
 
 import lombok.*;
 
-import java.util.List;
-
 @Data
 @AllArgsConstructor
 public class PlanStateDto {

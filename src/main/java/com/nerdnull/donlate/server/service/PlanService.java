@@ -27,11 +27,6 @@ public class PlanService {
         this.planRepository = planRepository;
     }
 
-    /**
-     *
-     *  약속생성 기능, 프론트에서 약속관련 정보를 받아와 Entity 에 저장하고 다시 Dto 로 변환하여 반환
-     *
-     */
     public PlanDto setPlan(CreatePlanRequest planRequest) {
         try {
             PlanDto planDto = new PlanDto(null, planRequest.getAdmin(), planRequest.getDeposit(),
@@ -47,11 +42,6 @@ public class PlanService {
         }
     }
 
-    /**
-     *
-     * 약속수정 기능, 프론트에서 수정할 약속에대한 정보를 가져와 해당 약속이 존재한다면 Entity 수정 후 Dto 로 변환하여 반환
-     *
-     */
     public PlanDto updatePlan(UpdatePlanRequest updatePlanRequest){
         try {
             PlanDto planDto = new PlanDto(updatePlanRequest.getPlanId(), updatePlanRequest.getAdmin(), updatePlanRequest.getDeposit(),
@@ -74,11 +64,6 @@ public class PlanService {
         }
     }
 
-    /**
-     *
-     * 약속삭제 기능
-     *
-     */
     public void deletePlan(Long planId) {
 
             Optional<PlanEntity> target = planRepository.findById(planId);
