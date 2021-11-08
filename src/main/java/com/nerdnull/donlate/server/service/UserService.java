@@ -1,6 +1,5 @@
 package com.nerdnull.donlate.server.service;
 
-import com.nerdnull.donlate.server.domain.PlanEntity;
 import com.nerdnull.donlate.server.domain.UserEntity;
 import com.nerdnull.donlate.server.dto.UserDto;
 import com.nerdnull.donlate.server.mapper.PaymentMapper;

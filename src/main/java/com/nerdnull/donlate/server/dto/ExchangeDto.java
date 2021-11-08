@@ -9,7 +9,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class ExchangeDto {
 
-    private Long id;
+    private Long exchangeId;
     private String account;
     private Long amount;
     private String nickName;
