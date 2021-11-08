@@ -21,11 +21,15 @@ public class PlanStateService {
         this.planStateRepository = planStateRepository;
     }
 
-    public void setPlanState(PlanStateDto planStateDto){
+    public void setPlanState(PlanStateDto planStateDto) {
         planStateRepository.save(planStateMapper.toEntity(planStateDto));
     }
 
-    public void deleteByPlanId(Long planId){
-            planStateRepository.deleteAllByPlanId(planId);
+    public void deleteByUserId(Long userId) {
+        this.planStateRepository.deleteAllByUserId(userId);
+    }
+
+    public void deleteByPlanId(Long planId) {
+        planStateRepository.deleteAllByPlanId(planId);
     }
 }

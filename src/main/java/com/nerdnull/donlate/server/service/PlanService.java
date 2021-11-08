@@ -33,7 +33,6 @@ public class PlanService {
                     planRequest.getLatePercent(), planRequest.getAbsentPercent(), planRequest.getTitle(),
                     planRequest.getLocation(), planRequest.getDetailLocation(), planRequest.getDate(),
                     planRequest.getDone(), null);
-            //PlanEntity e = planMapper.toEntity(planDto);
             PlanEntity saved = planRepository.save(planMapper.toEntity(planDto));
             return planMapper.toDto(saved);
         }
@@ -42,7 +41,7 @@ public class PlanService {
         }
     }
 
-    public PlanDto updatePlan(UpdatePlanRequest updatePlanRequest){
+    public void updatePlan(UpdatePlanRequest updatePlanRequest){
         try {
             PlanDto planDto = new PlanDto(updatePlanRequest.getPlanId(), updatePlanRequest.getAdmin(), updatePlanRequest.getDeposit(),
                     updatePlanRequest.getLatePercent(), updatePlanRequest.getAbsentPercent(), updatePlanRequest.getTitle(),
@@ -57,7 +56,7 @@ public class PlanService {
 
             PlanEntity saved = planRepository.save(planMapper.toEntity(planDto));
 
-            return planMapper.toDto(saved);
+            planMapper.toDto(saved);
         }
         catch (Exception e){
             throw e;

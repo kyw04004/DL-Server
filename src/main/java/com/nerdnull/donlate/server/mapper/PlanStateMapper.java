@@ -12,10 +12,9 @@ public interface PlanStateMapper extends GenericMapper<PlanStateDto, PlanStateEn
     @Mapping(target="user.paymentList", ignore = true)
     @Mapping(target="plan.planStateList", ignore = true)
     PlanStateDto toDto(PlanStateEntity planStateEntity);
+
     @Mapping(target="user.planStateList", ignore = true)
     @Mapping(target="user.paymentList", ignore = true)
     @Mapping(target="plan.planStateList", ignore = true)
     PlanStateEntity toEntity(PlanStateDto planStateDto);
-
-    //Integer deletePlanState(Long planId);
 }
