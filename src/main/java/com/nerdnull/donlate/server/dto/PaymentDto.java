@@ -8,9 +8,11 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 public class PaymentDto {
+
     private Long paymentId;
     private Long amount;
     private Date date;
     private Long userId;
     private UserDto user;
+
 }

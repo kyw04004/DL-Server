@@ -42,6 +42,6 @@ public class PlanEntity {
     @Column(nullable = false)
     private Boolean done;
 
-    @OneToMany(mappedBy = "plan")
+    @OneToMany(mappedBy = "plan",fetch = FetchType.EAGER)
     private List<PlanStateEntity> planStateList = new ArrayList<>();
 }

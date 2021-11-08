@@ -8,6 +8,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 public class UserDto {
+
     private Long userId;
     private String nickName;
     private String email;

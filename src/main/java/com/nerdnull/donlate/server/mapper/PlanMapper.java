@@ -6,10 +6,13 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
-public interface PlanMapper extends GenericMapper<PlanDto, PlanEntity>{
+public interface PlanMapper extends GenericMapper<PlanDto, PlanEntity> {
 
     @Mapping(target="planStateList", ignore = true)
     PlanDto toDto(PlanEntity planEntity);
+
     @Mapping(target="planStateList", ignore = true)
     PlanEntity toEntity(PlanDto planDto);
+
 }
+

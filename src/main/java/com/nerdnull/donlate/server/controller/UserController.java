@@ -97,7 +97,7 @@ public class UserController {
             }
 
             this.paymentService.delete(userId);
-            this.planStateService.delete(userId);
+            this.planStateService.deleteByUserId(userId);
             this.userService.delete(userId);
             return Response.ok("Delete user");
         }

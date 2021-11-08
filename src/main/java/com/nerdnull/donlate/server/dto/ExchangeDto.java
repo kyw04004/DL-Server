@@ -8,9 +8,11 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 public class ExchangeDto {
+
     private Long id;
     private String account;
     private Long amount;
     private String nickName;
     private Date requestedAt;
+
 }

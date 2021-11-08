@@ -11,7 +11,7 @@ public class ExchangeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "exchangeId")
-    private Long id;
+    private Long exchangeId;
 
     @Column(nullable = false)
     private String account;

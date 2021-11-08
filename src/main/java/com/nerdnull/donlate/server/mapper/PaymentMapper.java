@@ -10,6 +10,7 @@ public interface PaymentMapper extends GenericMapper<PaymentDto, PaymentEntity> 
     @Mapping(target="user.planStateList", ignore = true)
     @Mapping(target="user.paymentList", ignore = true)
     PaymentDto toDto(PaymentEntity paymentEntity);
+
     @Mapping(target="user.planStateList", ignore = true)
     @Mapping(target="user.paymentList", ignore = true)
     PaymentEntity toEntity(PaymentDto paymentDto);
