@@ -55,4 +55,10 @@ public class FinanceController {
             return Response.error(Response.INTERNAL_SERVER_ERROR, e.getMessage());
         }
     }
+
+    @PostMapping("/allocate")
+    public Response<String> allocate(@RequestBody Long planId){
+
+        return Response.ok("allocate complete");
+    }
 }

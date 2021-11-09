@@ -36,6 +36,7 @@ public class PlanController {
     public Response<Integer> create(@RequestBody CreatePlanRequest planRequest) {
         try {
             planRequest.isNotNull();
+            planRequest.checkDeposit();
             PlanDto savedPlan = this.planService.setPlan(planRequest);
             log.info("checking getSavedPlanId : {}", savedPlan.getPlanId());
             PlanStateDto planStateDto = new PlanStateDto(null, savedPlan.getPlanId(), savedPlan.getAdmin(), null, null, 0);
