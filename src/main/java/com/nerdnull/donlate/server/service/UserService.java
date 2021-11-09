@@ -1,6 +1,5 @@
 package com.nerdnull.donlate.server.service;
 
-import com.nerdnull.donlate.server.domain.PlanEntity;
 import com.nerdnull.donlate.server.domain.UserEntity;
 import com.nerdnull.donlate.server.dto.UserDto;
 import com.nerdnull.donlate.server.mapper.PaymentMapper;
@@ -48,6 +47,21 @@ public class UserService {
 
         UserEntity saved = this.userRepository.save(userMapper.toEntity(user));
         return saved.getUserId();
+    }
+
+    public void exchange(Long userId, Long point) throws Exception {
+        Optional<UserEntity> target = this.userRepository.findById(userId);
+        if(target.isEmpty())
+            throw new IllegalArgumentException("Not exist user");
+
+        if(target.get().getPoint() < point) {
+            throw new Exception("The user's point is insufficient.");
+        }
+
+        UserDto user = this.userMapper.toDto(target.get());
+        user.setPoint(target.get().getPoint() - point);
+
+        this.userRepository.save(this.userMapper.toEntity(user));
     }
 
     public void delete(Long userId) {
