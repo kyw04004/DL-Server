@@ -1,5 +1,6 @@
 package com.nerdnull.donlate.server.service;
 
+import com.nerdnull.donlate.server.domain.PaymentEntity;
 import com.nerdnull.donlate.server.domain.PlanEntity;
 import com.nerdnull.donlate.server.domain.PlanStateEntity;
 import com.nerdnull.donlate.server.dto.PaymentDto;
@@ -24,6 +25,12 @@ public class PaymentService {
     public PaymentService(PaymentRepository paymentRepository, PlanRepository planRepository) {
         this.paymentRepository = paymentRepository;
         this.planRepository = planRepository;
+    }
+
+    public List<PaymentDto> findByUserId(Long userId) {
+        List<PaymentEntity> paymentList = this.paymentRepository.findAllByUserId(userId);
+        return this.paymentMapper.toDtoList(paymentList);
+
     }
 
     public void add(PaymentDto paymentDto) {
