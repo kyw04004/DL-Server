@@ -10,7 +10,7 @@ public class ExchangeRequest {
     private Long userId;
     private String bank;
     private String account;
-    private Long amount;
+    private Long point;
     private String name;
 
     public void isNotNull() throws IllegalAccessException, IllegalArgumentException {

@@ -7,6 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 public interface PlanStateRepository extends JpaRepository<PlanStateEntity,Long> {
+    PlanStateEntity findByUserIdAndPlanId(Long userId, Long planId);
+
     @Transactional
     void deleteAllByUserId(Long userId);
 
