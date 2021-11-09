@@ -42,7 +42,7 @@ public class FinanceController {
             PaymentDto paymentDto = new PaymentDto(null, request.getAmount(), new Date(), request.getUserId(), null);
             this.paymentService.add(paymentDto);
 
-            this.userService.exchange(request.getUserId(), request.getAmount());
+            this.userService.updatePoint(request.getUserId(), -request.getAmount());
 
             return Response.ok("Exchange request complete");
         }

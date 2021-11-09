@@ -1,5 +1,6 @@
 package com.nerdnull.donlate.server.service;
 
+import com.nerdnull.donlate.server.domain.PlanStateEntity;
 import com.nerdnull.donlate.server.dto.PlanStateDto;
 import com.nerdnull.donlate.server.mapper.PlanStateMapper;
 import com.nerdnull.donlate.server.repository.PlanStateRepository;
@@ -21,7 +22,12 @@ public class PlanStateService {
         this.planStateRepository = planStateRepository;
     }
 
-    public void setPlanState(PlanStateDto planStateDto) {
+    public void setPlanState(PlanStateDto planStateDto) throws IllegalAccessException {
+        PlanStateEntity planStateEntity =
+                this.planStateRepository.findByUserIdAndPlanId(planStateDto.getUserId(), planStateDto.getPlanId());
+
+        if(planStateEntity != null)
+            throw new IllegalAccessException("The user has already been added to plan.");
         planStateRepository.save(planStateMapper.toEntity(planStateDto));
     }
 
