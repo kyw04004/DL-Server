@@ -49,17 +49,18 @@ public class UserService {
         return saved.getUserId();
     }
 
-    public void exchange(Long userId, Long point) throws Exception {
+    public void updatePoint(Long userId, Long diff) throws Exception {
         Optional<UserEntity> target = this.userRepository.findById(userId);
-        if(target.isEmpty())
+        if(target.isEmpty()){
             throw new IllegalArgumentException("Not exist user");
+        }
 
-        if(target.get().getPoint() < point) {
+        if(target.get().getPoint() + diff < 0) {
             throw new Exception("The user's point is insufficient.");
         }
 
         UserDto user = this.userMapper.toDto(target.get());
-        user.setPoint(target.get().getPoint() - point);
+        user.setPoint(target.get().getPoint() + diff);
 
         this.userRepository.save(this.userMapper.toEntity(user));
     }

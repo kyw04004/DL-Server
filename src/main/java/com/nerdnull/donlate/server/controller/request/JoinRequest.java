@@ -8,9 +8,11 @@ import java.lang.reflect.Field;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreatePlanStateRequest {
+public class JoinRequest {
     private Long planId;
     private Long userId;
+    private Long point;
+    private Long money;
 
     public void isNotNull() throws IllegalAccessException, IllegalArgumentException {
         for (Field f : getClass().getDeclaredFields()){
