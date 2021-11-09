@@ -12,8 +12,8 @@ public class GetPaymentListResponse {
 
     List<GetPaymentResponse> paymentList;
 
-    public void add(Long userId, Long paymentId, Long amount, Date date) {
-        this.paymentList.add(new GetPaymentResponse(userId, paymentId, amount, date));
+    public void add(Long userId, Long paymentId, Long money, Long point, Date date) {
+        this.paymentList.add(new GetPaymentResponse(userId, paymentId, money, point, date));
     }
 
     @Data
@@ -21,7 +21,8 @@ public class GetPaymentListResponse {
     private static class GetPaymentResponse {
         private Long userId;
         private Long paymentId;
-        private Long amount;
+        private Long money;
+        private Long point;
         private Date date;
     }
 }

@@ -36,13 +36,13 @@ public class FinanceController {
         try {
             request.isNotNull();
 
-            ExchangeDto exchangeDto = new ExchangeDto(null, request.getBank(), request.getAccount(), request.getAmount(), request.getName(), null);
+            ExchangeDto exchangeDto = new ExchangeDto(null, request.getBank(), request.getAccount(), request.getPoint(), request.getName(), null);
             this.exchangeService.save(exchangeDto);
 
-            PaymentDto paymentDto = new PaymentDto(null, request.getAmount(), new Date(), request.getUserId(), null);
+            PaymentDto paymentDto = new PaymentDto(null, 0L, request.getPoint(), new Date(), request.getUserId(), null);
             this.paymentService.add(paymentDto);
 
-            this.userService.updatePoint(request.getUserId(), -request.getAmount());
+            this.userService.updatePoint(request.getUserId(), -request.getPoint());
 
             return Response.ok("Exchange request complete");
         }
@@ -66,7 +66,7 @@ public class FinanceController {
             GetPaymentListResponse response = new GetPaymentListResponse(new ArrayList<>());
             List<PaymentDto> paymentList = this.paymentService.findByUserId(userId);
             for(PaymentDto payment : paymentList){
-                response.add(payment.getUserId(), payment.getPaymentId(), payment.getAmount(), payment.getDate());
+                response.add(payment.getUserId(), payment.getPaymentId(), payment.getMoney(), payment.getPoint(), payment.getDate());
             }
 
             return Response.ok(response);

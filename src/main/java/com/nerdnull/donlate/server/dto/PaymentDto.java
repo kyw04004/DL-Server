@@ -10,7 +10,8 @@ import java.util.Date;
 public class PaymentDto {
 
     private Long paymentId;
-    private Long amount;
+    private Long money;
+    private Long point;
     private Date date;
     private Long userId;
     private UserDto user;

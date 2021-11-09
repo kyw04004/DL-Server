@@ -14,7 +14,10 @@ public class PaymentEntity {
     private Long paymentId;
 
     @Column(nullable = false)
-    private Long amount;
+    private Long money;
+
+    @Column(nullable = false)
+    private Long point;
 
     @Column(nullable = false)
     private Date date;
