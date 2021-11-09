@@ -104,7 +104,7 @@ public class PlanController {
 
             this.userService.updatePoint(request.getUserId(), -request.getPoint());
 
-            PaymentDto payment = new PaymentDto(null, -request.getMoney()-request.getPoint(), new Date(), request.getUserId(), null);
+            PaymentDto payment = new PaymentDto(null, -request.getMoney(), -request.getPoint(), new Date(), request.getUserId(), null);
             this.paymentService.add(payment);
         }
         catch (IllegalAccessException e){
