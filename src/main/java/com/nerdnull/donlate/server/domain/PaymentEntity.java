@@ -1,10 +1,11 @@
 package com.nerdnull.donlate.server.domain;
 
-import lombok.Getter;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
-@Getter
+
+@Data
 @Entity
 public class PaymentEntity {
     @Id
@@ -13,7 +14,10 @@ public class PaymentEntity {
     private Long paymentId;
 
     @Column(nullable = false)
-    private Long amount;
+    private Long money;
+
+    @Column(nullable = false)
+    private Long point;
 
     @Column(nullable = false)
     private Date date;

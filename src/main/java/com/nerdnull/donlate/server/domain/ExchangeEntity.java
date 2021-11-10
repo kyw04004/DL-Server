@@ -1,17 +1,20 @@
 package com.nerdnull.donlate.server.domain;
 
-import lombok.Getter;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
 
-@Getter
+@Data
 @Entity
 public class ExchangeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "exchangeId")
-    private Long id;
+    private Long exchangeId;
+
+    @Column(nullable = false)
+    private String bank;
 
     @Column(nullable = false)
     private String account;
@@ -20,7 +23,7 @@ public class ExchangeEntity {
     private Long amount;
 
     @Column(nullable = false)
-    private String nickName;
+    private String name;
 
     @Column(nullable = false)
     private Date requestedAt;
