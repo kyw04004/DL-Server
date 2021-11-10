@@ -31,7 +31,7 @@ public class PlanScheduler {
         this.planStateRepository = planStateRepository;
         this.planRepository = planRepository;
     }
-    
+
     @Transactional
     @Scheduled(cron="0 0 0 * * *")
     public void run() {
