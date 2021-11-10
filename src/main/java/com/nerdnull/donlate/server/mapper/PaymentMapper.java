@@ -7,8 +7,8 @@ import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
 public interface PaymentMapper extends GenericMapper<PaymentDto, PaymentEntity> {
-    @Mapping(target="planState", ignore = true)
+    @Mapping(target="user", ignore = true)
     PaymentDto toDto(PaymentEntity paymentEntity);
-    @Mapping(target="planState", ignore = true)
+    @Mapping(target="user", ignore = true)
     PaymentEntity toEntity(PaymentDto paymentDto);
 }
