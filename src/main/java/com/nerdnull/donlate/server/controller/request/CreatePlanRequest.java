@@ -27,4 +27,14 @@ public class CreatePlanRequest {
                 throw new IllegalAccessException(f.getName() + " could not be null");
         }
     }
+
+    public void checkDeposit() throws IllegalArgumentException{
+        if(getDeposit() < 1000){
+            throw new IllegalArgumentException("deposit min value is 1000");
+        }
+        else if(getDeposit()%100!=0){
+            throw new IllegalArgumentException("deposit%100 != 0");
+        }
+    }
+
 }
