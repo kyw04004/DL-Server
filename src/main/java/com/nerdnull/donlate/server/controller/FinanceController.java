@@ -4,10 +4,7 @@ import com.nerdnull.donlate.server.controller.request.AllocateRequest;
 import com.nerdnull.donlate.server.controller.request.ExchangeRequest;
 import com.nerdnull.donlate.server.controller.response.GetPaymentListResponse;
 import com.nerdnull.donlate.server.controller.response.Response;
-import com.nerdnull.donlate.server.dto.ExchangeDto;
-import com.nerdnull.donlate.server.dto.PaymentDto;
-import com.nerdnull.donlate.server.dto.PlanDto;
-import com.nerdnull.donlate.server.dto.PlanStateDto;
+import com.nerdnull.donlate.server.dto.*;
 import com.nerdnull.donlate.server.service.ExchangeService;
 import com.nerdnull.donlate.server.service.PaymentService;
 import com.nerdnull.donlate.server.service.PlanService;
@@ -98,23 +95,23 @@ public class FinanceController {
             long absentToNormal = deposit * plan.getAbsentPercent() / 100;
             long forNormalPerson = 0L;
             int normalCnt = 0;
-
-            for (PlanStateDto p : planStateList) {
-                Integer lateState = p.getLateState();
-                if (lateState == 1) forNormalPerson += lateToNormal;
-                else if (lateState == 2) forNormalPerson += absentToNormal;
-                else normalCnt++;
-            }
-
-            Long toNormalPerson = (forNormalPerson / normalCnt);
-
+            Integer opt = request.getOption();
             for (PlanStateDto p : planStateList) {
                 Integer lateState = p.getLateState();
                 Long userId = p.getUserId();
-                if (lateState == 1) this.userService.updatePoint(userId, deposit - lateToNormal);
-                else if (lateState == 2) this.userService.updatePoint(userId, deposit - absentToNormal);
-                else userService.updatePoint(userId, deposit+toNormalPerson);
+                if (lateState == 1) {
+                    forNormalPerson += lateToNormal;
+                    this.userService.updatePoint(userId, deposit - lateToNormal);
+                }
+                else if (lateState == 2) {
+                    forNormalPerson += absentToNormal;
+                    this.userService.updatePoint(userId, deposit - absentToNormal);
+                }
+                else normalCnt++;
             }
+            if(opt==0) this.paymentService.basicAllocate(new AllocateDto(planStateList, deposit, forNormalPerson / normalCnt, normalCnt));
+            else if(opt==1) this.paymentService.toOneAllocate(new AllocateDto(planStateList, deposit, forNormalPerson, normalCnt));
+            else if(opt==2) this.paymentService.toHalfAllocate(new AllocateDto(planStateList,deposit, forNormalPerson, normalCnt));
         }
 
         catch (IllegalArgumentException e){
@@ -127,5 +124,6 @@ public class FinanceController {
         }
         return Response.ok("allocate complete");
     }
+
 
 }
