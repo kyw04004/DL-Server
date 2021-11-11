@@ -33,16 +33,14 @@ public class PaymentScheduler {
             log.info("Payment scheduling job start--{}", LocalTime.now());
             Calendar cal = Calendar.getInstance();
             cal.add(Calendar.YEAR, -1);
-            log.info(cal.toString());
             List<PaymentDto> paymentList = paymentMapper.toDtoList(paymentRepository.findAll());
             for (PaymentDto p : paymentList) {
                 int compare = cal.getTime().compareTo(p.getDate());
-                log.info(p.getDate().toString());
                 if (compare > 0) {
-                    log.info(p.getPaymentId().toString());
                     paymentRepository.deleteById(p.getPaymentId());
                 }
             }
+            log.info("Exchange scheduling job end--{}", LocalTime.now());
         } catch(Exception e) {
             log.error(e.getMessage());
             throw e;

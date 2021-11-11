@@ -39,25 +39,21 @@ public class PlanScheduler {
             log.info("Plan scheduling job start--{}", LocalTime.now());
             Calendar cal = Calendar.getInstance();
             cal.add(Calendar.YEAR, -1);
-            log.info(cal.toString());
             List<PlanStateDto> planStateList = planStateMapper.toDtoList(planStateRepository.findAll());
             List<PlanDto> planList = planMapper.toDtoList(planRepository.findAll());
             for (PlanStateDto p : planStateList) {
                 int compare = cal.getTime().compareTo(p.getPlan().getDate());
-                log.info(p.getPlan().getDate().toString());
                 if (compare > 0) {
-                    log.info(p.getPlanStateId().toString());
                     planStateRepository.deleteById(p.getPlanStateId());
                 }
             }
             for (PlanDto p : planList) {
                 int compare = cal.getTime().compareTo(p.getDate());
-                log.info(p.getDate().toString());
                 if (compare > 0) {
-                    log.info(p.getPlanId().toString());
                     planRepository.deleteById(p.getPlanId());
                 }
             }
+            log.info("Exchange scheduling job end--{}", LocalTime.now());
         } catch(Exception e) {
             log.error(e.getMessage());
             throw e;
