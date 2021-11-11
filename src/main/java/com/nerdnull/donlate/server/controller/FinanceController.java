@@ -94,9 +94,9 @@ public class FinanceController {
             PlanDto plan = this.planService.getDetails(request.getPlanId());
             Long deposit = plan.getDeposit();
             List<PlanStateDto> planStateList = plan.getPlanStateList();
-            Long lateToNormal = deposit * plan.getLatePercent() / 100;
-            Long absentToNormal = deposit * plan.getAbsentPercent() / 100;
-            Long forNormalPerson = 0L;
+            long lateToNormal = deposit * plan.getLatePercent() / 100;
+            long absentToNormal = deposit * plan.getAbsentPercent() / 100;
+            long forNormalPerson = 0L;
             int normalCnt = 0;
 
             for (PlanStateDto p : planStateList) {
@@ -127,4 +127,5 @@ public class FinanceController {
         }
         return Response.ok("allocate complete");
     }
+
 }

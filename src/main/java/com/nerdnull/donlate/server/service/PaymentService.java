@@ -25,7 +25,6 @@ public class PaymentService {
     public List<PaymentDto> findByUserId(Long userId) {
         List<PaymentEntity> paymentList = this.paymentRepository.findAllByUserId(userId);
         return this.paymentMapper.toDtoList(paymentList);
-
     }
 
     public void add(PaymentDto paymentDto) {

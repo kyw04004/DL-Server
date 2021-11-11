@@ -20,3 +20,4 @@ public class SchedulerConfig implements SchedulingConfigurer {
         taskRegistrar.setTaskScheduler(threadPoolTaskScheduler);
     }
 }
+
