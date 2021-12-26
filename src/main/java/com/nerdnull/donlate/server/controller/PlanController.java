@@ -137,13 +137,25 @@ public class PlanController {
         return Response.ok(true);
     }
 
-    @GetMapping("/details")
-    public Response<PlanDetailResponse> getDetails(@RequestParam Long planId) {
+    /**
+     *
+     * PLAN ID로 PLAN 상세 정보 요청
+     *
+     * @param planId input(plan ID)
+     * @return Plan Info
+     */
+    @GetMapping("/details/{planId}")
+    public Response<PlanDetailResponse> getDetails(@PathVariable("planId") Long planId) {
         try {
+            if(planId==null) throw new IllegalArgumentException("planId could not be null");
             PlanDto plan = planService.getDetails(planId);
             log.info("Success send planDetails");
             return Response.ok(new PlanDetailResponse(plan.getPlanId(), plan.getAdmin(), plan.getDeposit(), plan.getLatePercent(), plan.getAbsentPercent(),
                     plan.getTitle(), plan.getLocation(), plan.getDetailLocation(), plan.getDate(), plan.getDone(), plan.getPlanStateList()));
+        }
+        catch (IllegalArgumentException e){
+            log.error(e.getMessage(), e);
+            return Response.error(Response.BAD_REQUEST, e.getMessage());
         }
         catch(Exception e) {
             log.error(e.getMessage(), e);
