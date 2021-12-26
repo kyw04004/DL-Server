@@ -1,0 +1,67 @@
+
+**Plan Create**
+----
+   Returns success message or error message.
+
+* **URL**
+
+  'api/v1/plan/create'
+
+* **Method:**
+
+  `POST`
+  
+*  **URL Params**
+
+   **Required:**
+
+   None
+
+* **Data Params**
+
+```json
+{
+	"admin": adminUserId,
+        "deposit": deposit,
+        "latePercent": latePercent(0-100),
+        "absentPercent": absentPercent(0-100),
+        "title": title,
+        "location": location,
+        "detailLocation": detailLocation,
+        "date": date,
+        "done": false or true
+}
+```
+
+  
+
+* **Success Response:**
+
+```json
+{
+	"status" : 200,
+	"data": true
+	"message" :"Success"
+}
+```
+
+* **Error Response:**
+
+```json
+{
+	"status" : 400,
+	"data" : NULL,
+	"message" :exception.getMessage()
+}
+```
+
+  OR
+
+  ```json
+{
+	"status" : 500,
+	"data" : NULL,
+	"message" :exception.getMessage()
+}
+  ```
+

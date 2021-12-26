@@ -147,7 +147,7 @@ public class PlanController {
     @GetMapping("/details/{planId}")
     public Response<PlanDetailResponse> getDetails(@PathVariable("planId") Long planId) {
         try {
-            if(planId==null) throw new IllegalArgumentException("planId could not be null");
+            if(planId == null) throw new IllegalArgumentException("planId could not be null");
             PlanDto plan = planService.getDetails(planId);
             log.info("Success send planDetails");
             return Response.ok(new PlanDetailResponse(plan.getPlanId(), plan.getAdmin(), plan.getDeposit(), plan.getLatePercent(), plan.getAbsentPercent(),
