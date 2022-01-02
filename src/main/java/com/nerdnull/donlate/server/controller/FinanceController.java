@@ -38,6 +38,7 @@ public class FinanceController {
     public Response<String> exchange(@RequestBody ExchangeRequest request){
         try {
             request.isNotNull();
+            request.checkPoint();
 
             ExchangeDto exchangeDto = new ExchangeDto(null, request.getBank(), request.getAccount(), request.getPoint(), request.getName(), null);
             this.exchangeService.save(exchangeDto);

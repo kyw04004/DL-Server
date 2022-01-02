@@ -19,4 +19,8 @@ public class ExchangeRequest {
                 throw new IllegalAccessException(f.getName() + " could not be null");
         }
     }
+
+    public void checkPoint() throws IllegalArgumentException {
+        if(this.point <= 0) throw new IllegalArgumentException("The point should be positive.");
+    }
 }
