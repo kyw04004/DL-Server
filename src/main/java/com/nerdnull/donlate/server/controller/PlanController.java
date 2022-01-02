@@ -32,6 +32,7 @@ public class PlanController {
     private final PaymentService paymentService;
     private final UserService userService;
 
+
     @Autowired
     public PlanController(PlanService planService, PlanStateService planStateService, PaymentService paymentService, UserService userService) {
         this.planService = planService;
@@ -40,8 +41,15 @@ public class PlanController {
         this.userService = userService;
     }
 
+    /**
+     *
+     * 약속관련 정보 받아서 plan 생성
+     *
+     * @param planRequest input(admin ID, deposit, latePercent, absentPercent, title, location, detailLocation, date, done)
+     * @return String message
+     */
     @PostMapping("/create")
-    public Response<Boolean> create(@RequestBody CreatePlanRequest planRequest) {
+    public Response<String> create(@RequestBody CreatePlanRequest planRequest) {
         try {
             planRequest.isNotNull();
             planRequest.checkDeposit();
@@ -58,11 +66,18 @@ public class PlanController {
             log.error(e.getMessage(), e);
             return Response.error(Response.INTERNAL_SERVER_ERROR, e.getMessage());
         }
-        return Response.ok(true);
+        return Response.ok("create plan complete!!");
     }
 
+    /**
+     *
+     * plan 수정사항 받아서 약속 정보 update
+     *
+     * @param updatePlanRequest input(plan ID, admin ID, deposit, latePercent, absentPercent, title, location, detailLocation, date, done)
+     * @return String message
+     */
     @PutMapping("/update")
-    public Response<Boolean> update(@RequestBody UpdatePlanRequest updatePlanRequest) {
+    public Response<String> update(@RequestBody UpdatePlanRequest updatePlanRequest) {
         try {
             updatePlanRequest.isNotNull();
             this.planService.updatePlan(updatePlanRequest);
@@ -75,9 +90,16 @@ public class PlanController {
             log.error(e.getMessage(), e);
             return Response.error(Response.INTERNAL_SERVER_ERROR, e.getMessage());
         }
-        return Response.ok(true);
+        return Response.ok("update plan complete");
     }
 
+    /**
+     *
+     * 해당 planId 를 가진 plan 을 planStateList 와 planList 에서 삭제
+     *
+     * @param planId input(plan ID)
+     * @return String message
+     */
     @DeleteMapping(value = "/delete/{planId}")
     public Response<String> delete(@PathVariable("planId") Long planId){
         try {
@@ -96,8 +118,15 @@ public class PlanController {
         return Response.ok("delete complete!!");
     }
 
+    /**
+     *
+     * plan 에 참여하는 인원들 planStateList 에 추가, 각 인원별 point 정보 갱신
+     *
+     * @param request input(plan ID, user ID, point, money)
+     * @return String message
+     */
     @PostMapping("/join")
-    public Response<Boolean> join(@RequestBody JoinRequest request){
+    public Response<String> join(@RequestBody JoinRequest request){
         try {
             request.isNotNull();
             PlanStateDto planStateDto = new PlanStateDto(null, request.getPlanId(), request.getUserId(), null,null,0);
@@ -116,11 +145,18 @@ public class PlanController {
             log.error(e.getMessage(), e);
             return Response.error(Response.INTERNAL_SERVER_ERROR, e.getMessage());
         }
-        return Response.ok(true);
+        return Response.ok("join complete!!");
     }
 
+    /**
+     *
+     * plan 에 참여한 user 들의 lateState 를 참고하여 정산
+     *
+     * @param body input(plan ID, userState<user ID, lateState>)
+     * @return String message
+     */
     @PutMapping("/calculate")
-    public Response<Boolean>calculate(@RequestBody String body){
+    public Response<String>calculate(@RequestBody String body){
         try{
             CalculateParseDto cal = CalculateParse.parse(body);
             PlanDto plan = this.planService.getDetails(cal.getPlanId());
@@ -134,7 +170,7 @@ public class PlanController {
             log.error(e.getMessage(), e);
             return Response.error(Response.INTERNAL_SERVER_ERROR, e.getMessage());
         }
-        return Response.ok(true);
+        return Response.ok("calculate complete!!");
     }
 
     /**
