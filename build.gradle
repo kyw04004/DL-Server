@@ -1,3 +1,5 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
 plugins {
     id 'org.springframework.boot' version '2.5.4'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
@@ -5,13 +7,17 @@ plugins {
 }
 
 group = 'com.nerdnull.donlate'
-version = '0.0.1-SNAPSHOT'
+version = '0.1.0'
 sourceCompatibility = '11'
 
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
     }
+}
+
+jar {
+    enabled = false
 }
 
 repositories {
@@ -53,4 +59,16 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+processResources {
+    if(project.hasProperty("userName") && project.hasProperty("password")) {
+        from('src/main/resources'){
+            include '*.properties'
+            filter(ReplaceTokens, tokens: [
+                    USER_NAME : project.findProperty("USER_NAME"),
+                    PASSWORD : project.findProperty("PASSWORD")
+            ])
+        }
+    }
 }
