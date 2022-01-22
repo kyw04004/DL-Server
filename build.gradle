@@ -62,7 +62,8 @@ test {
 }
 
 processResources {
-    if(project.hasProperty("userName") && project.hasProperty("password")) {
+    duplicatesStrategy = org.gradle.api.file.DuplicatesStrategy.INCLUDE
+    if(project.hasProperty("USER_NAME") && project.hasProperty("PASSWORD")) {
         from('src/main/resources'){
             include '*.properties'
             filter(ReplaceTokens, tokens: [
