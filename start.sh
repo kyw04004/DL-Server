@@ -2,7 +2,7 @@
 
 PROJECT=DL-Server
 
-PID=$(pgrep -f "$PROJECT*.jar")
+PID=$(pgrep -f "$PROJECT*")
 
 if [[ $PID != "" ]]; then
   echo "Error : $PROJECT is already running."
@@ -19,5 +19,5 @@ else
   echo "ENV is $ENV"
 fi
 
-nohup java -Dspring.profiles.active=$ENV -jar $JAR
+nohup java -Dspring.profiles.active=$ENV -jar $JAR &
 echo Please wait 10s.
