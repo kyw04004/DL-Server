@@ -2,9 +2,9 @@
 
 PROJECT=DL-Server
 
-PID=$(pgrep -f "$PROJECT*.jar")
-
-if [[ $PID != "" ]]; then
+PID=$(pgrep -f "$PROJECT*")
+echo $PID
+if [[ $PID == "" ]]; then
   echo "Error : $PROJECT is not running."
   exit
 fi
