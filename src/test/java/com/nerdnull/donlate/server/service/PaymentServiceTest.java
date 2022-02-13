@@ -16,7 +16,7 @@ import static org.mockito.BDDMockito.*;
 import static org.mockito.Mockito.times;
 
 @ExtendWith(MockitoExtension.class)
-class PaymentServiceTest {
+public class PaymentServiceTest {
 
     @Mock PaymentService paymentService;
 
@@ -80,7 +80,7 @@ class PaymentServiceTest {
 
     @DisplayName("정상 참여자 중 1명에게 분배")
     @Test
-    void toOneAllocate( ) throws Exception {
+    void toOneAllocate() throws Exception {
         //given
         AllocateDto allocateDto = new AllocateDto(null, null, null, 1);
         willDoNothing().given(paymentService).toOneAllocate(allocateDto);
@@ -94,7 +94,7 @@ class PaymentServiceTest {
 
     @DisplayName("정상 참여자 중 절반에게 분배")
     @Test
-    void toHalfAllocate( ) throws Exception{
+    void toHalfAllocate() throws Exception{
         //given
         AllocateDto allocateDto = new AllocateDto(null, null, null, 1);
         willDoNothing().given(paymentService).toHalfAllocate(allocateDto);
