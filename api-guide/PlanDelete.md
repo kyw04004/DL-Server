@@ -5,48 +5,47 @@
 
 * **URL**
 
-  'api/v1/plan/delete/{planId}'
+  `api/v1/plan/delete/{planId}`
 
 * **Method:**
 
   `DELETE`
   
-*  **URL Params **
+* **URL Params**
    
    **Required:**
    `planId=[Long]`
    
 * **Data Params**
 
-​		None  
+    None
 
 * **Success Response:**
 
-```json
+```java
 {
-	"status" : 200,
-	"data": "delete coplete!!",
-	"message" :"Success"
+    "status" : 200,
+    "data" : "delete coplete!!",
+    "message" : "Success"
 }
 ```
 
 * **Error Response:**
 
-```json
+```java
 {
-	"status" : 400,
-	"data" : NULL,
-	"message" :exception.getMessage()
+    "status" : 400,
+    "data" : NULL,
+    "message" : exception.getMessage()
 }
 ```
 
-  OR
+OR
 
-  ```json
+```java
 {
-	"status" : 500,
-	"data" : NULL,
-	"message" :exception.getMessage()
+    "status" : 500,
+    "data" : NULL,
+    "message" : exception.getMessage()
 }
-  ```
-
+```

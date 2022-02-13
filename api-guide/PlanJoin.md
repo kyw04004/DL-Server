@@ -5,24 +5,25 @@
 
 * **URL**
 
-  'api/v1/plan/join'
+  `api/v1/plan/join`
 
 * **Method:**
 
   `POST`
   
-*  **URL Params **
+* **URL Params**
    
    **Required:**
+   
    None
    
 * **Data Params**
 
-```json
+```java
 {
-	"planId" : planId,
-	"userId": userId,
-	"point" : point,
+    "planId" : planId,
+    "userId" : userId,
+    "point" : point,
     "money" : money
 }
 ```
@@ -31,31 +32,31 @@
 
 * **Success Response:**
 
-```json
+```java
 {
-	"status" : 200,
-	"data": true,
-	"message" :"Success"
+    "status" : 200,
+    "data" : true,
+    "message" : "Success"
 }
 ```
 
 * **Error Response:**
 
-```json
+```java
 {
-	"status" : 400,
-	"data" : NULL,
-	"message" :exception.getMessage()
+    "status" : 400,
+    "data" : NULL,
+    "message" : exception.getMessage()
 }
 ```
 
-  OR
+OR
 
-  ```json
+```java
 {
-	"status" : 500,
-	"data" : NULL,
-	"message" :exception.getMessage()
+    "status" : 500,
+    "data" : NULL,
+    "message" : exception.getMessage()
 }
-  ```
+```
 

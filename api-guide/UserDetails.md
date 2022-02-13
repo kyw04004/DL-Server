@@ -5,7 +5,7 @@
 
 * **URL**
 
-  'api/v1/user/details/{userId}'
+  `api/v1/user/details/{userId}`
 
 * **Method:**
 
@@ -23,84 +23,84 @@
 
 * **Success Response:**
 
-```json
+```java
 {
-	"status" : 200,
-	"data": {
-        "userId": userId,
-        "nickName": nickName,
-        "email": email,
-        "point": point,
-        "planStateList": [
+    "status" : 200,
+    "data" : {
+        "userId" : userId,
+        "nickName" : nickName,
+        "email" : email,
+        "point" : point,
+        "planStateList" : [
             {
-                "planStateId": planStateId,
-                "planId": planId,
-                "userId": userId,
-                "user": {
-                    "userId": userId,
-                    "nickName": nickName,
-                    "email": email,
-                    "point": point,
-                    "planStateList": null,
-                    "paymentList": null
+                "planStateId" : planStateId,
+                "planId" : planId,
+                "userId" : userId,
+                "user" : {
+                    "userId" : userId,
+                    "nickName" : nickName,
+                    "email" : email,
+                    "point" : point,
+                    "planStateList" : null,
+                    "paymentList" : null
                 },
-                "plan": {
-                    "planId": planId,
-                    "admin": adminUserId,
-                    "deposit": deposit,
-                    "latePercent": latePercent(0-100),
-                    "absentPercent": absent(0-100),
-                    "title": title,
-                    "location": location,
-                    "detailLocation": detailLocation,
-                    "date": date,
-                    "done": false or true,
-                    "planStateList": null
+                "plan" : {
+                    "planId" : planId,
+                    "admin" : adminUserId,
+                    "deposit" : deposit,
+                    "latePercent" : latePercent(0-100),
+                    "absentPercent" : absent(0-100),
+                    "title" : title,
+                    "location" : location,
+                    "detailLocation" : detailLocation,
+                    "date" : date,
+                    "done" : false or true,
+                    "planStateList" : null
                 },
-                "lateState": 0 or 1 or 2
+                "lateState" : 0 or 1 or 2
             },
             ...
         ],
-        "paymentList": [
+        "paymentList" : [
             {
-                "paymentId": paymentId,
-                "money": money,
-                "point": point,
-                "date": date,
-                "userId": userId,
-                "user": {
-                    "userId": userId,
-                    "nickName": nickName,
-                    "email": email,
-                    "point": point,
-                    "planStateList": null,
-                    "paymentList": null
+                "paymentId" : paymentId,
+                "money" : money,
+                "point" : point,
+                "date" : date,
+                "userId" : userId,
+                "user" : {
+                    "userId" : userId,
+                    "nickName" : nickName,
+                    "email" : email,
+                    "point" : point,
+                    "planStateList" : null,
+                    "paymentList" : null
                 }
             },
 			...
         ]
     },
-	"message" :"Success"
+    "message" : "Success"
 }
 ```
 
 * **Error Response:**
 
-```json
+```java
 {
-	"status" : 400,
-	"data" : NULL,
-	"message" :exception.getMessage()
+    "status" : 400,
+    "data" : NULL,
+    "message" : exception.getMessage()
 }
 ```
 
-  OR
+OR
 
-  ```json
+```java
 {
-	"status" : 500,
-	"data" : NULL,
-	"message" :exception.getMessage()
+    "status" : 500,
+    "data" : NULL,
+    "message" : exception.getMessage()
 }
-  ```
+```
 

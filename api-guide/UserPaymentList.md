@@ -5,7 +5,7 @@
 
 * **URL**
 
-  'api/v1/finance/payment/{userId}/list'
+  `api/v1/finance/payment/{userId}/list`
 
 * **Method:**
 
@@ -19,48 +19,48 @@
 
 * **Data Params**
 
-​		None
+  None
 
-  
+
 
 * **Success Response:**
 
-```json
+```java
 {
-	"status" : 200,
-	"data": {
+    "status" : 200,
+    "data" : {
         "paymentList" : [
             {
             	"userId" : userId,
-        		"paymentId" : paymentId,
-        		"money" : money,
-        		"point" : point,
-        		"date" : date
+                "paymentId" : paymentId,
+                "money" : money,
+                "point" : point,
+                "date" : date
             },	
     		...
         ],
     },
-	"message" :"Success"
+    "message" : "Success"
 }
 ```
 
 * **Error Response:**
 
-```json
+```java
 {
-	"status" : 400,
-	"data" : NULL,
-	"message" :exception.getMessage()
+    "status" : 400,
+    "data" : NULL,
+    "message" : exception.getMessage()
 }
 ```
 
-  OR
+OR
 
-  ```json
+```java
 {
-	"status" : 500,
-	"data" : NULL,
-	"message" :exception.getMessage()
+    "status" : 500,
+    "data" : NULL,
+    "message" : exception.getMessage()
 }
-  ```
+```
 

@@ -5,28 +5,31 @@
 
 * **URL**
 
-  'api/v1/plan/calculate'
+  `api/v1/plan/calculate`
 
 * **Method:**
 
   `PUT`
   
-*  **URL Params **
+* **URL Params**
    
    **Required:**
+
    None
    
 * **Data Params**
 
-```json
+```java
 {
-  "planId": 2,
+  "planId" : 2,
   "jsonArray" : [
       {
-          “userId”:1,“lateState”:0
+          "userId" : 1,
+          "lateState" : 0
       },
       {
-          “userId”:2,“lateState”:2
+          "userId" : 2,
+          "lateState" : 2
       }
   ]
 }
@@ -36,31 +39,31 @@
 
 * **Success Response:**
 
-```json
+```java
 {
-	"status" : 200,
-	"data": true,
-	"message" :"Success"
+    "status" : 200,
+    "data" : true,
+    "message" : "Success"
 }
 ```
 
 * **Error Response:**
 
-```json
+```java
 {
-	"status" : 400,
-	"data" : NULL,
-	"message" :exception.getMessage()
+    "status" : 400,
+    "data" : NULL,
+    "message" : exception.getMessage()
 }
 ```
 
   OR
 
-  ```json
+```java
 {
-	"status" : 500,
-	"data" : NULL,
-	"message" :exception.getMessage()
+    "status" : 500,
+    "data" : NULL,
+    "message" : exception.getMessage()
 }
-  ```
+ ```
 

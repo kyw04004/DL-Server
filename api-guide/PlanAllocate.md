@@ -5,7 +5,7 @@
 
 * **URL**
 
-  'api/v1/finance/payment/allocate'
+  `api/v1/finance/payment/allocate`
 
 * **Method:**
 
@@ -19,7 +19,7 @@
 
 * **Data Params**
 
-```json
+```java
 {
     "planId" : planId,
     "option" : 0(1/n) or 1(to only one) or 2(to half)
@@ -30,31 +30,30 @@
 
 * **Success Response:**
 
-```json
-{
-	"status" : 200,
-	"data": "allocate complete",
-	"message" :"Success"
+```java
+{   
+    "status" : 200,
+    "data" : "allocate complete",
+    "message" : "Success"
 }
 ```
 
 * **Error Response:**
 
-```json
+```java
 {
-	"status" : 400,
-	"data" : NULL,
-	"message" :exception.getMessage()
+    "status" : 400,
+    "data" : NULL,
+    "message" : exception.getMessage()
 }
 ```
 
   OR
 
-  ```json
+```java
 {
-	"status" : 500,
-	"data" : NULL,
-	"message" :exception.getMessage()
+    "status" : 500,
+    "data" : NULL,
+    "message" : exception.getMessage()
 }
-  ```
-
+```

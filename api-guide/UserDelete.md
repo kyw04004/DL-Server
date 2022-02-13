@@ -5,51 +5,51 @@
 
 * **URL**
 
-  'api/v1/user/delete/{userId}'
+  `api/v1/user/delete/{userId}`
 
 * **Method:**
 
   `DELETE`
   
-*  **URL Params**
+* **URL Params**
 
    **Required:**
 
    `userId=[Long]`
 
 * **Data Params**
-
-​		None
+	
+  None
 
   
 
 * **Success Response:**
 
-```json
+```java
 {
-	"status" : 200,
-	"data": "Delete user",
-	"message" :"Success"
+    "status" : 200,
+    "data" : "Delete user",
+    "message" : "Success"
 }
 ```
 
 * **Error Response:**
 
-```json
+```java
 {
-	"status" : 400,
-	"data" : NULL,
-	"message" :exception.getMessage()
+    "status" : 400,
+    "data" : NULL,
+    "message" : exception.getMessage()
 }
 ```
 
-  OR
+OR
 
-  ```json
+```java
 {
-	"status" : 500,
-	"data" : NULL,
-	"message" :exception.getMessage()
+    "status" : 500,
+    "data" : NULL,
+    "message" : exception.getMessage()
 }
-  ```
+```
 

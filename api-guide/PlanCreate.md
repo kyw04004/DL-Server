@@ -5,7 +5,7 @@
 
 * **URL**
 
-  'api/v1/plan/create'
+  `api/v1/plan/create`
 
 * **Method:**
 
@@ -13,23 +13,21 @@
   
 *  **URL Params**
 
-   **Required:**
-
-   None
+   **Required:** None
 
 * **Data Params**
 
-```json
+```java
 {
-	"admin": adminUserId,
-        "deposit": deposit,
-        "latePercent": latePercent(0-100),
-        "absentPercent": absentPercent(0-100),
-        "title": title,
-        "location": location,
-        "detailLocation": detailLocation,
-        "date": date,
-        "done": false or true
+    "admin" : adminUserId,
+    "deposit" : deposit,
+    "latePercent" : latePercent(0-100),
+    "absentPercent" : absentPercent(0-100),
+    "title" : title,
+    "location" : location,
+    "detailLocation" : detailLocation,
+    "date" : date,
+    "done" : false or true
 }
 ```
 
@@ -37,31 +35,31 @@
 
 * **Success Response:**
 
-```json
+```java
 {
-	"status" : 200,
-	"data": true
-	"message" :"Success"
+    "status" : 200,
+    "data" : true,
+    "message" : "Success"
 }
 ```
 
 * **Error Response:**
 
-```json
+```java
 {
-	"status" : 400,
-	"data" : NULL,
-	"message" :exception.getMessage()
+    "status" : 400,
+    "data" : NULL,
+    "message" : exception.getMessage()
 }
 ```
 
-  OR
+OR
 
-  ```json
+```java
 {
-	"status" : 500,
-	"data" : NULL,
-	"message" :exception.getMessage()
+    "status" : 500,
+    "data" : NULL,
+    "message" :exception.getMessage()
 }
-  ```
+```
 

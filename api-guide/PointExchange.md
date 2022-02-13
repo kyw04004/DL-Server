@@ -5,7 +5,7 @@
 
 * **URL**
 
-  'api/v1/finance/exchange'
+  `api/v1/finance/exchange`
 
 * **Method:**
 
@@ -19,7 +19,7 @@
 
 * **Data Params**
 
-```json
+```java
 {
     "userId" : userId,
     "bank" : bank,
@@ -33,31 +33,31 @@
 
 * **Success Response:**
 
-```json
+```java
 {
-	"status" : 200,
-	"data": "Exchange request complete",
-	"message" :"Success"
+    "status" : 200,
+    "data" : "Exchange request complete",
+    "message" : "Success"
 }
 ```
 
 * **Error Response:**
 
-```json
+```java
 {
-	"status" : 400,
-	"data" : NULL,
-	"message" :exception.getMessage()
+    "status" : 400,
+    "data" : NULL,
+    "message" : exception.getMessage()
 }
 ```
 
-  OR
+OR
 
-  ```json
+```java
 {
-	"status" : 500,
-	"data" : NULL,
-	"message" :exception.getMessage()
+    "status" : 500,
+    "data" : NULL,
+    "message" : exception.getMessage()
 }
-  ```
+```
 
