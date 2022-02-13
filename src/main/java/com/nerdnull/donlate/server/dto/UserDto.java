@@ -1,12 +1,18 @@
 package com.nerdnull.donlate.server.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
-@Getter
-@Setter
+import java.util.List;
 
+@Data
+@AllArgsConstructor
 public class UserDto {
-    private Long id;
-    //kakao Coming soon..
+
+    private Long userId;
+    private String nickName;
+    private String email;
+    private Long point;
+    private List<PlanStateDto> planStateList;
+    private List<PaymentDto> paymentList;
 }

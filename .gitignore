@@ -35,3 +35,10 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### logs folder ###
+logs/
+nohup.out
+
+### generated Mapper ###
+!**/src/main/generated
