@@ -38,6 +38,7 @@ public class FinanceController {
     public Response<String> exchange(@RequestBody ExchangeRequest request){
         try {
             request.isNotNull();
+            request.checkPoint();
 
             ExchangeDto exchangeDto = new ExchangeDto(null, request.getBank(), request.getAccount(), request.getPoint(), request.getName(), null);
             this.exchangeService.save(exchangeDto);
@@ -84,6 +85,14 @@ public class FinanceController {
         }
     }
 
+    /**
+     *
+     * plan 종료 후 plan 에 참여한 user 들에게 돈 분배
+     * option 0 : 일반 분배, option 1 : 한명에게만 분배, option 2 : 약속참여인원 절반에게만 분배
+     *
+     * @param request input(plan ID, allocate Option)
+     * @return String message
+     */
     @PostMapping("/allocate")
     public Response<String> allocate(@RequestBody AllocateRequest request){
         try {
@@ -122,7 +131,7 @@ public class FinanceController {
             log.error(e.getMessage(), e);
             return Response.error(Response.INTERNAL_SERVER_ERROR, e.getMessage());
         }
-        return Response.ok("allocate complete");
+        return Response.ok("allocate complete!!");
     }
 
 

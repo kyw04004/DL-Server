@@ -1,3 +1,5 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
 plugins {
     id 'org.springframework.boot' version '2.5.4'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
@@ -5,7 +7,7 @@ plugins {
 }
 
 group = 'com.nerdnull.donlate'
-version = '0.0.1-SNAPSHOT'
+version = '0.1.0'
 sourceCompatibility = '11'
 
 configurations {
@@ -14,11 +16,21 @@ configurations {
     }
 }
 
+jar {
+    enabled = false
+}
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    implementation group: 'ch.qos.logback', name: 'logback-core', version: '1.2.9'
+    implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.9'
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.32'
+    implementation group: 'org.slf4j', name: 'jul-to-slf4j', version: '1.7.32'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: '2.16.0'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.16.0'
 
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -41,8 +53,23 @@ dependencies {
     implementation 'org.mapstruct:mapstruct:1.4.2.Final'
     implementation 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
     implementation 'com.opencsv:opencsv:3.7'
+    implementation 'com.amazonaws:aws-java-sdk-s3:1.12.131'
 }
+
 
 test {
     useJUnitPlatform()
+}
+
+processResources {
+    duplicatesStrategy = org.gradle.api.file.DuplicatesStrategy.INCLUDE
+    if(project.hasProperty("USER_NAME") && project.hasProperty("PASSWORD")) {
+        from('src/main/resources'){
+            include '*.properties'
+            filter(ReplaceTokens, tokens: [
+                    USER_NAME : project.findProperty("USER_NAME"),
+                    PASSWORD : project.findProperty("PASSWORD")
+            ])
+        }
+    }
 }

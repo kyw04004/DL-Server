@@ -37,7 +37,8 @@ out/
 .vscode/
 
 ### logs folder ###
-.logs/
+logs/
+nohup.out
 
 ### generated Mapper ###
 !**/src/main/generated
