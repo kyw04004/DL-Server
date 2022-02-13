@@ -34,6 +34,13 @@ public class FinanceController {
         this.planService = planService;
     }
 
+    /**
+     *
+     * 사용자의 포인트를 환전 신청
+     *
+     * @param request input(userId, bank, account, point, name)
+     * @return String message
+     */
     @PostMapping("/exchange")
     public Response<String> exchange(@RequestBody ExchangeRequest request){
         try {
@@ -60,6 +67,13 @@ public class FinanceController {
         }
     }
 
+    /**
+     *
+     * 사용자의 결제내역 목록을 반환
+     *
+     * @param userId input(user ID)
+     * @return PaymentList info
+     */
     @GetMapping("/payment/{userId}/list")
     public Response <GetPaymentListResponse> getPaymentList(@PathVariable Long userId){
         try {
