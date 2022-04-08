@@ -12,8 +12,8 @@ import com.nerdnull.donlate.server.service.PaymentService;
 import com.nerdnull.donlate.server.service.PlanService;
 import com.nerdnull.donlate.server.service.PlanStateService;
 import com.nerdnull.donlate.server.service.UserService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.nerdnull.donlate.server.controller.response.PlanDetailResponse;
 import com.nerdnull.donlate.server.controller.response.Response;
@@ -25,21 +25,13 @@ import java.util.List;
 @Slf4j
 @RequestMapping("/api/v1/plan")
 @RestController
+@RequiredArgsConstructor
 public class PlanController {
 
     private final PlanService planService;
     private final PlanStateService planStateService;
     private final PaymentService paymentService;
     private final UserService userService;
-
-
-    @Autowired
-    public PlanController(PlanService planService, PlanStateService planStateService, PaymentService paymentService, UserService userService) {
-        this.planService = planService;
-        this.planStateService = planStateService;
-        this.paymentService = paymentService;
-        this.userService = userService;
-    }
 
     /**
      *
@@ -55,7 +47,11 @@ public class PlanController {
             planRequest.checkDeposit();
             PlanDto savedPlan = this.planService.setPlan(planRequest);
             log.info("checking getSavedPlanId : {}", savedPlan.getPlanId());
-            PlanStateDto planStateDto = new PlanStateDto(null, savedPlan.getPlanId(), savedPlan.getAdmin(), null, null, 0);
+            PlanStateDto planStateDto = PlanStateDto.builder()
+                    .planId(savedPlan.getPlanId())
+                    .userId(savedPlan.getAdmin())
+                    .lateState(0)
+                    .build();
             this.planStateService.setPlanState(planStateDto);
         }
         catch (IllegalAccessException e) {
@@ -129,7 +125,11 @@ public class PlanController {
     public Response<String> join(@RequestBody JoinRequest request){
         try {
             request.isNotNull();
-            PlanStateDto planStateDto = new PlanStateDto(null, request.getPlanId(), request.getUserId(), null,null,0);
+            PlanStateDto planStateDto = PlanStateDto.builder()
+                    .planId(request.getPlanId())
+                    .userId(request.getUserId())
+                    .lateState(0)
+                    .build();
             this.planStateService.setPlanState(planStateDto);
 
             this.userService.updatePoint(request.getUserId(), -request.getPoint());
@@ -162,8 +162,12 @@ public class PlanController {
             PlanDto plan = this.planService.getDetails(cal.getPlanId());
             List<PlanStateDto> planStateList = plan.getPlanStateList();
             for (PlanStateDto p : planStateList) {
-                this.planStateService.setPlanState(new PlanStateDto(p.getPlanStateId(),cal.getPlanId(),
-                        p.getUserId(),null,null,cal.getUserState().get(p.getUserId())));
+                this.planStateService.setPlanState(PlanStateDto.builder()
+                                .planStateId(p.getPlanStateId())
+                                .planId(cal.getPlanId())
+                                .userId(p.getUserId())
+                                .lateState(cal.getUserState().get(p.getUserId()))
+                                .build());
             }
         }
         catch (Exception e){
@@ -186,8 +190,19 @@ public class PlanController {
             if(planId == null) throw new IllegalArgumentException("planId could not be null");
             PlanDto plan = planService.getDetails(planId);
             log.info("Success send planDetails");
-            return Response.ok(new PlanDetailResponse(plan.getPlanId(), plan.getAdmin(), plan.getDeposit(), plan.getLatePercent(), plan.getAbsentPercent(),
-                    plan.getTitle(), plan.getLocation(), plan.getDetailLocation(), plan.getDate(), plan.getDone(), plan.getPlanStateList()));
+            return Response.ok(PlanDetailResponse.builder()
+                    .planId(plan.getPlanId())
+                    .admin(plan.getAdmin())
+                    .deposit(plan.getDeposit())
+                    .latePercent(plan.getLatePercent())
+                    .absentPercent(plan.getAbsentPercent())
+                    .title(plan.getTitle())
+                    .location(plan.getLocation())
+                    .detailLocation(plan.getDetailLocation())
+                    .date(plan.getDate())
+                    .done(plan.getDone())
+                    .planStateList(plan.getPlanStateList())
+                    .build());
         }
         catch (IllegalArgumentException e){
             log.error(e.getMessage(), e);

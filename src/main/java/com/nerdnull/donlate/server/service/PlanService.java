@@ -29,10 +29,17 @@ public class PlanService {
 
     public PlanDto setPlan(CreatePlanRequest planRequest) {
         try {
-            PlanDto planDto = new PlanDto(null, planRequest.getAdmin(), planRequest.getDeposit(),
-                    planRequest.getLatePercent(), planRequest.getAbsentPercent(), planRequest.getTitle(),
-                    planRequest.getLocation(), planRequest.getDetailLocation(), planRequest.getDate(),
-                    planRequest.getDone(), null);
+            PlanDto planDto = PlanDto.builder()
+                    .admin(planRequest.getAdmin())
+                    .deposit(planRequest.getDeposit())
+                    .latePercent(planRequest.getLatePercent())
+                    .absentPercent(planRequest.getAbsentPercent())
+                    .title(planRequest.getTitle())
+                    .location(planRequest.getLocation())
+                    .detailLocation(planRequest.getDetailLocation())
+                    .date(planRequest.getDate())
+                    .done(planRequest.getDone())
+                    .build();
             PlanEntity saved = planRepository.save(planMapper.toEntity(planDto));
             return planMapper.toDto(saved);
         }
@@ -43,11 +50,18 @@ public class PlanService {
 
     public void updatePlan(UpdatePlanRequest updatePlanRequest){
         try {
-            PlanDto planDto = new PlanDto(updatePlanRequest.getPlanId(), updatePlanRequest.getAdmin(), updatePlanRequest.getDeposit(),
-                    updatePlanRequest.getLatePercent(), updatePlanRequest.getAbsentPercent(), updatePlanRequest.getTitle(),
-                    updatePlanRequest.getLocation(), updatePlanRequest.getDetailLocation(), updatePlanRequest.getDate(),
-                    updatePlanRequest.getDone(), null);
-
+            PlanDto planDto = PlanDto.builder()
+                    .planId(updatePlanRequest.getPlanId())
+                    .admin(updatePlanRequest.getAdmin())
+                    .deposit(updatePlanRequest.getDeposit())
+                    .latePercent(updatePlanRequest.getLatePercent())
+                    .absentPercent(updatePlanRequest.getAbsentPercent())
+                    .title(updatePlanRequest.getTitle())
+                    .location(updatePlanRequest.getLocation())
+                    .detailLocation(updatePlanRequest.getDetailLocation())
+                    .date(updatePlanRequest.getDate())
+                    .done(updatePlanRequest.getDone())
+                    .build();
             Optional<PlanEntity> target = planRepository.findById(planDto.getPlanId());
 
             if (target.isEmpty()) {

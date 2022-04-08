@@ -5,7 +5,7 @@ import com.nerdnull.donlate.server.dto.PlanDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "spring")
+@Mapper()
 public interface PlanMapper extends GenericMapper<PlanDto, PlanEntity> {
 
     @Mapping(target="planStateList", ignore = true)
