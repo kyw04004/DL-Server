@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Slf4j
@@ -22,13 +23,13 @@ public class PlanStateService {
         this.planStateRepository = planStateRepository;
     }
 
+    @Transactional
     public void setPlanState(PlanStateDto planStateDto) throws IllegalAccessException {
         PlanStateEntity planStateEntity =
                 this.planStateRepository.findByUserIdAndPlanId(planStateDto.getUserId(), planStateDto.getPlanId());
-
         if(planStateEntity != null)
-            throw new IllegalAccessException("The user has already been added to plan.");
-        planStateRepository.save(planStateMapper.toEntity(planStateDto));
+            planStateEntity.setLateState(planStateDto.getLateState());
+        else planStateRepository.save(planStateMapper.toEntity(planStateDto));
     }
 
     public void deleteByUserId(Long userId) {

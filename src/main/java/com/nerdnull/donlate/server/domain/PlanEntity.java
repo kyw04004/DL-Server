@@ -1,5 +1,6 @@
 package com.nerdnull.donlate.server.domain;
 
+import com.nerdnull.donlate.server.dto.LateState;
 import lombok.Data;
 
 import javax.persistence.*;

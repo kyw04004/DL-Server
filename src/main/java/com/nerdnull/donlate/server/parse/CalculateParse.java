@@ -1,11 +1,13 @@
 package com.nerdnull.donlate.server.parse;
 
 import com.nerdnull.donlate.server.dto.CalculateParseDto;
+import com.nerdnull.donlate.server.dto.LateState;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class CalculateParse {
@@ -18,8 +20,10 @@ public class CalculateParse {
         for (Object o : jsonArr) {
             JSONObject jsonObj2 = (JSONObject) o;
             Long userId = (Long) jsonObj2.get("userId");
-            Long lateState = (Long) jsonObj2.get("lateState");
-            cal.getUserState().put(userId, lateState.intValue());
+            String lateState = (String) jsonObj2.get("lateState");
+            if(Objects.equals(lateState, "NORMAL")) cal.getUserState().put(userId, LateState.NORMAL);
+            if(Objects.equals(lateState, "LATE")) cal.getUserState().put(userId, LateState.LATE);
+            if(Objects.equals(lateState, "ABSENT")) cal.getUserState().put(userId, LateState.ABSENT);
         }
         return cal;
     }

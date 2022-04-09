@@ -22,14 +22,14 @@
 ```java
 {
   "planId" : 2,
-  "jsonArray" : [
+  "userState" : [
       {
           "userId" : 1,
-          "lateState" : 0
+          "lateState" : "NORMAL"
       },
       {
           "userId" : 2,
-          "lateState" : 2
+          "lateState" : "ABSENT"
       }
   ]
 }

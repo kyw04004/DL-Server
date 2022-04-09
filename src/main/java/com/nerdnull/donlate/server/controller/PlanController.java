@@ -3,10 +3,7 @@ package com.nerdnull.donlate.server.controller;
 import com.nerdnull.donlate.server.controller.request.CreatePlanRequest;
 import com.nerdnull.donlate.server.controller.request.JoinRequest;
 import com.nerdnull.donlate.server.controller.request.UpdatePlanRequest;
-import com.nerdnull.donlate.server.dto.CalculateParseDto;
-import com.nerdnull.donlate.server.dto.PaymentDto;
-import com.nerdnull.donlate.server.dto.PlanDto;
-import com.nerdnull.donlate.server.dto.PlanStateDto;
+import com.nerdnull.donlate.server.dto.*;
 import com.nerdnull.donlate.server.parse.CalculateParse;
 import com.nerdnull.donlate.server.service.PaymentService;
 import com.nerdnull.donlate.server.service.PlanService;
@@ -50,7 +47,7 @@ public class PlanController {
             PlanStateDto planStateDto = PlanStateDto.builder()
                     .planId(savedPlan.getPlanId())
                     .userId(savedPlan.getAdmin())
-                    .lateState(0)
+                    .lateState(LateState.NORMAL)
                     .build();
             this.planStateService.setPlanState(planStateDto);
         }
@@ -128,7 +125,7 @@ public class PlanController {
             PlanStateDto planStateDto = PlanStateDto.builder()
                     .planId(request.getPlanId())
                     .userId(request.getUserId())
-                    .lateState(0)
+                    .lateState(LateState.NORMAL)
                     .build();
             this.planStateService.setPlanState(planStateDto);
 
@@ -150,7 +147,7 @@ public class PlanController {
 
     /**
      *
-     * plan 에 참여한 user 들의 lateState 를 참고하여 정산
+     * plan 에 참여한 user 들의 lateState 입력(수정)
      *
      * @param body input(plan ID, userState<user ID, lateState>)
      * @return String message

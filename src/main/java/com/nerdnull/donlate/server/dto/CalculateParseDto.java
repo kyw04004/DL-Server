@@ -9,5 +9,5 @@ import java.util.concurrent.ConcurrentHashMap;
 @AllArgsConstructor
 public class CalculateParseDto {
     private Long planId;
-    private ConcurrentHashMap<Long, Integer> userState;
+    private ConcurrentHashMap<Long, LateState> userState;
 }

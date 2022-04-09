@@ -120,13 +120,13 @@ public class FinanceController {
             int normalCnt = 0;
             Integer opt = request.getOption();
             for (PlanStateDto p : planStateList) {
-                Integer lateState = p.getLateState();
+                LateState lateState = p.getLateState();
                 Long userId = p.getUserId();
-                if (lateState == 1) {
+                if (lateState == LateState.LATE) {
                     forNormalPerson += lateToNormal;
                     this.userService.updatePoint(userId, deposit - lateToNormal);
                 }
-                else if (lateState == 2) {
+                else if (lateState == LateState.ABSENT) {
                     forNormalPerson += absentToNormal;
                     this.userService.updatePoint(userId, deposit - absentToNormal);
                 }

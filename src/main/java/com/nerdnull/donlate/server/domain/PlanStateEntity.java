@@ -1,5 +1,6 @@
 package com.nerdnull.donlate.server.domain;
 
+import com.nerdnull.donlate.server.dto.LateState;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -18,8 +19,9 @@ public class PlanStateEntity {
     @Column(nullable = false)
     private Long userId;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Integer lateState;//0:출석, 1:지각, 2:결석
+    private LateState lateState;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="userId", insertable = false, updatable = false)

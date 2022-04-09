@@ -2,6 +2,7 @@ package com.nerdnull.donlate.server.service;
 
 import com.nerdnull.donlate.server.domain.PaymentEntity;
 import com.nerdnull.donlate.server.dto.AllocateDto;
+import com.nerdnull.donlate.server.dto.LateState;
 import com.nerdnull.donlate.server.dto.PaymentDto;
 import com.nerdnull.donlate.server.dto.PlanStateDto;
 import com.nerdnull.donlate.server.mapper.PaymentMapper;
@@ -40,9 +41,9 @@ public class PaymentService {
 
     public void basicAllocate(AllocateDto allocateDto) throws Exception {
         for (PlanStateDto p : allocateDto.getPlanStateList()) {
-            Integer lateState = p.getLateState();
+            LateState lateState = p.getLateState();
             Long userId = p.getUserId();
-            if (lateState == 0) this.userService.updatePoint(userId, allocateDto.getDeposit() + allocateDto.getToNormal());
+            if (lateState == LateState.NORMAL) this.userService.updatePoint(userId, allocateDto.getDeposit() + allocateDto.getToNormal());
         }
     }
 
@@ -51,7 +52,7 @@ public class PaymentService {
         int target = rand.nextInt(allocateDto.getNormalCnt());
         List<Long> userList = new ArrayList<>();
         List<PlanStateDto> planStateList = allocateDto.getPlanStateList();
-        for (PlanStateDto p : planStateList) if(p.getLateState() == 0)userList.add(p.getUserId());
+        for (PlanStateDto p : planStateList) if(p.getLateState() == LateState.NORMAL)userList.add(p.getUserId());
         Collections.shuffle(userList);
         for (int i = 0; i < userList.size(); ++i) {
             if (i == 0) this.userService.updatePoint(userList.get(i), allocateDto.getDeposit() + allocateDto.getToNormal());
@@ -63,7 +64,7 @@ public class PaymentService {
         int len = allocateDto.getNormalCnt() + 1;
         List<Long> userList = new ArrayList<>();
         List<PlanStateDto> planStateList = allocateDto.getPlanStateList();
-        for (PlanStateDto p : planStateList) if(p.getLateState() == 0)userList.add(p.getUserId());
+        for (PlanStateDto p : planStateList) if(p.getLateState() == LateState.NORMAL)userList.add(p.getUserId());
         Collections.shuffle(userList);
         len /= 2;
         int cnt = 0;
