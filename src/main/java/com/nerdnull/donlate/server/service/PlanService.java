@@ -7,6 +7,7 @@ import com.nerdnull.donlate.server.dto.PlanDto;
 import com.nerdnull.donlate.server.mapper.PlanMapper;
 import com.nerdnull.donlate.server.mapper.PlanStateMapper;
 import com.nerdnull.donlate.server.repository.PlanRepository;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,16 +17,12 @@ import java.util.Optional;
 
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class PlanService {
 
     private final PlanRepository planRepository;
-    private final PlanMapper planMapper = Mappers.getMapper(PlanMapper.class);
-    private final PlanStateMapper planStateMapper = Mappers.getMapper(PlanStateMapper.class);
-
-    @Autowired
-    public PlanService(PlanRepository planRepository) {
-        this.planRepository = planRepository;
-    }
+    private final PlanMapper planMapper;
+    private final PlanStateMapper planStateMapper;
 
     public PlanDto setPlan(CreatePlanRequest planRequest) {
         try {

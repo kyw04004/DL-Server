@@ -6,6 +6,7 @@ import com.nerdnull.donlate.server.mapper.PaymentMapper;
 import com.nerdnull.donlate.server.mapper.PlanStateMapper;
 import com.nerdnull.donlate.server.mapper.UserMapper;
 import com.nerdnull.donlate.server.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,17 +16,13 @@ import java.util.Optional;
 
 @Service
 @Slf4j
+@RequiredArgsConstructor
 public class UserService {
 
     private final UserRepository userRepository;
-    private final UserMapper userMapper = Mappers.getMapper(UserMapper.class);
-    private final PlanStateMapper planStateMapper = Mappers.getMapper(PlanStateMapper.class);
-    private final PaymentMapper paymentMapper = Mappers.getMapper(PaymentMapper.class);
-
-    @Autowired
-    public UserService(UserRepository userRepository){
-        this.userRepository = userRepository;
-    }
+    private final UserMapper userMapper;
+    private final PlanStateMapper planStateMapper;
+    private final PaymentMapper paymentMapper;
 
     public UserDto getUser(Long userId) {
         UserEntity maybeUser = userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("Not exists user"));
