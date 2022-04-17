@@ -7,24 +7,19 @@ import com.nerdnull.donlate.server.dto.UserDto;
 import com.nerdnull.donlate.server.service.PaymentService;
 import com.nerdnull.donlate.server.service.PlanStateService;
 import com.nerdnull.donlate.server.service.UserService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/api/v1/user")
 @RestController
+@RequiredArgsConstructor
 @Slf4j
 public class UserController {
     private final UserService userService;
     private final PaymentService paymentService;
     private final PlanStateService planStateService;
-
-    @Autowired
-    public UserController(UserService userService, PaymentService paymentService, PlanStateService planStateService){
-        this.userService = userService;
-        this.paymentService = paymentService;
-        this.planStateService = planStateService;
-    }
 
     /**
      *

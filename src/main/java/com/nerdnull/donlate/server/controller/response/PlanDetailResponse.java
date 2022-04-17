@@ -2,13 +2,14 @@ package com.nerdnull.donlate.server.controller.response;
 
 import com.nerdnull.donlate.server.dto.PlanStateDto;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.Date;
 import java.util.List;
 
 @Data
-@AllArgsConstructor
+@Builder
 public class PlanDetailResponse {
     private Long planId;
     private Long admin;

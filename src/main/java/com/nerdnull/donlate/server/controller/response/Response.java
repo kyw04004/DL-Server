@@ -2,7 +2,6 @@ package com.nerdnull.donlate.server.controller.response;
 
 import lombok.*;
 
-@Builder
 @Getter
 @Setter
 @AllArgsConstructor

@@ -1,12 +1,14 @@
 package com.nerdnull.donlate.server.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.Date;
 import java.util.List;
 
 @Data
+@Builder
 @AllArgsConstructor
 public class PlanDto {
 

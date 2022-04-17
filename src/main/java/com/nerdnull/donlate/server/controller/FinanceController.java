@@ -9,6 +9,7 @@ import com.nerdnull.donlate.server.service.ExchangeService;
 import com.nerdnull.donlate.server.service.PaymentService;
 import com.nerdnull.donlate.server.service.PlanService;
 import com.nerdnull.donlate.server.service.UserService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,20 +20,13 @@ import java.util.List;
 
 @RequestMapping("/api/v1/finance")
 @RestController
+@RequiredArgsConstructor
 @Slf4j
 public class FinanceController {
     private final ExchangeService exchangeService;
     private final PaymentService paymentService;
     private final UserService userService;
     private final PlanService planService;
-
-    @Autowired
-    public FinanceController(ExchangeService exchangeService, PaymentService paymentService, UserService userService, PlanService planService) {
-        this.exchangeService = exchangeService;
-        this.paymentService = paymentService;
-        this.userService = userService;
-        this.planService = planService;
-    }
 
     /**
      *
@@ -120,13 +114,13 @@ public class FinanceController {
             int normalCnt = 0;
             Integer opt = request.getOption();
             for (PlanStateDto p : planStateList) {
-                Integer lateState = p.getLateState();
+                LateState lateState = p.getLateState();
                 Long userId = p.getUserId();
-                if (lateState == 1) {
+                if (lateState == LateState.LATE) {
                     forNormalPerson += lateToNormal;
                     this.userService.updatePoint(userId, deposit - lateToNormal);
                 }
-                else if (lateState == 2) {
+                else if (lateState == LateState.ABSENT) {
                     forNormalPerson += absentToNormal;
                     this.userService.updatePoint(userId, deposit - absentToNormal);
                 }

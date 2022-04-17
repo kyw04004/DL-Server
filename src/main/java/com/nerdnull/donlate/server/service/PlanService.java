@@ -7,6 +7,7 @@ import com.nerdnull.donlate.server.dto.PlanDto;
 import com.nerdnull.donlate.server.mapper.PlanMapper;
 import com.nerdnull.donlate.server.mapper.PlanStateMapper;
 import com.nerdnull.donlate.server.repository.PlanRepository;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,23 +17,26 @@ import java.util.Optional;
 
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class PlanService {
 
     private final PlanRepository planRepository;
-    private final PlanMapper planMapper = Mappers.getMapper(PlanMapper.class);
-    private final PlanStateMapper planStateMapper = Mappers.getMapper(PlanStateMapper.class);
-
-    @Autowired
-    public PlanService(PlanRepository planRepository) {
-        this.planRepository = planRepository;
-    }
+    private final PlanMapper planMapper;
+    private final PlanStateMapper planStateMapper;
 
     public PlanDto setPlan(CreatePlanRequest planRequest) {
         try {
-            PlanDto planDto = new PlanDto(null, planRequest.getAdmin(), planRequest.getDeposit(),
-                    planRequest.getLatePercent(), planRequest.getAbsentPercent(), planRequest.getTitle(),
-                    planRequest.getLocation(), planRequest.getDetailLocation(), planRequest.getDate(),
-                    planRequest.getDone(), null);
+            PlanDto planDto = PlanDto.builder()
+                    .admin(planRequest.getAdmin())
+                    .deposit(planRequest.getDeposit())
+                    .latePercent(planRequest.getLatePercent())
+                    .absentPercent(planRequest.getAbsentPercent())
+                    .title(planRequest.getTitle())
+                    .location(planRequest.getLocation())
+                    .detailLocation(planRequest.getDetailLocation())
+                    .date(planRequest.getDate())
+                    .done(planRequest.getDone())
+                    .build();
             PlanEntity saved = planRepository.save(planMapper.toEntity(planDto));
             return planMapper.toDto(saved);
         }
@@ -43,11 +47,18 @@ public class PlanService {
 
     public void updatePlan(UpdatePlanRequest updatePlanRequest){
         try {
-            PlanDto planDto = new PlanDto(updatePlanRequest.getPlanId(), updatePlanRequest.getAdmin(), updatePlanRequest.getDeposit(),
-                    updatePlanRequest.getLatePercent(), updatePlanRequest.getAbsentPercent(), updatePlanRequest.getTitle(),
-                    updatePlanRequest.getLocation(), updatePlanRequest.getDetailLocation(), updatePlanRequest.getDate(),
-                    updatePlanRequest.getDone(), null);
-
+            PlanDto planDto = PlanDto.builder()
+                    .planId(updatePlanRequest.getPlanId())
+                    .admin(updatePlanRequest.getAdmin())
+                    .deposit(updatePlanRequest.getDeposit())
+                    .latePercent(updatePlanRequest.getLatePercent())
+                    .absentPercent(updatePlanRequest.getAbsentPercent())
+                    .title(updatePlanRequest.getTitle())
+                    .location(updatePlanRequest.getLocation())
+                    .detailLocation(updatePlanRequest.getDetailLocation())
+                    .date(updatePlanRequest.getDate())
+                    .done(updatePlanRequest.getDone())
+                    .build();
             Optional<PlanEntity> target = planRepository.findById(planDto.getPlanId());
 
             if (target.isEmpty()) {
