@@ -41,10 +41,20 @@ public class FinanceController {
             request.isNotNull();
             request.checkPoint();
 
-            ExchangeDto exchangeDto = new ExchangeDto(null, request.getBank(), request.getAccount(), request.getPoint(), request.getName(), null);
+            ExchangeDto exchangeDto = ExchangeDto.builder()
+                    .bank(request.getBank())
+                    .account(request.getAccount())
+                    .amount(request.getPoint())
+                    .name(request.getName())
+                    .build();
             this.exchangeService.save(exchangeDto);
 
-            PaymentDto paymentDto = new PaymentDto(null, 0L, request.getPoint(), new Date(), request.getUserId(), null);
+            PaymentDto paymentDto = PaymentDto.builder()
+                    .money(0L)
+                    .point(request.getPoint())
+                    .date(new Date())
+                    .userId(request.getUserId())
+                    .build();
             this.paymentService.add(paymentDto);
 
             this.userService.updatePoint(request.getUserId(), -request.getPoint());

@@ -36,8 +36,14 @@ public class UserController {
             }
 
             UserDto user = this.userService.getUser(userId);
-            UserDetailResponse response = new UserDetailResponse(user.getUserId(), user.getNickName(), user.getEmail(),
-                    user.getPoint(), user.getPlanStateList(), user.getPaymentList());
+            UserDetailResponse response = UserDetailResponse.builder()
+                    .userId(user.getUserId())
+                    .nickName(user.getNickName())
+                    .email(user.getEmail())
+                    .point(user.getPoint())
+                    .planStateList(user.getPlanStateList())
+                    .paymentList(user.getPaymentList())
+                    .build();
 
             return Response.ok(response);
         }
@@ -62,8 +68,11 @@ public class UserController {
     public Response<Long> login(@RequestBody LoginRequest request) {
         try {
             request.isNotNull();
-            UserDto user = new UserDto(null, request.getNickName(),
-                    request.getEmail(), null, null, null);
+            UserDto user = UserDto.builder()
+                    .nickName(request.getNickName())
+                    .email(request.getEmail())
+                    .build();
+
             return Response.ok(this.userService.login(user));
 
         }
