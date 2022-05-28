@@ -5,7 +5,7 @@
 
 * **URL**
 
-  `api/v1/plan/create`
+  `api/v1/plans`
 
 * **Method:**
 

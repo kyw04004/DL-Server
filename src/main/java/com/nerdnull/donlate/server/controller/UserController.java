@@ -9,10 +9,9 @@ import com.nerdnull.donlate.server.service.PlanStateService;
 import com.nerdnull.donlate.server.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("/api/v1/user")
+@RequestMapping("/api/v1/users")
 @RestController
 @RequiredArgsConstructor
 @Slf4j
@@ -28,7 +27,7 @@ public class UserController {
      * @param userId input(user ID)
      * @return User Info
      */
-    @GetMapping("/details/{userId}")
+    @GetMapping("/{userId}")
     public Response <UserDetailResponse> getUser(@PathVariable Long userId){
         try {
             if(userId == null) {
@@ -93,7 +92,7 @@ public class UserController {
      * @param userId input(user id)
      * @return String message
      */
-    @DeleteMapping("/delete/{userId}")
+    @DeleteMapping("/{userId}")
     public Response<String> delete(@PathVariable Long userId) {
         try {
             if(userId == null) {

@@ -5,7 +5,7 @@
 
 * **URL**
 
-  `api/v1/plan/join`
+  `api/v1/plans/join`
 
 * **Method:**
 

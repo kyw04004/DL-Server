@@ -5,7 +5,7 @@
 
 * **URL**
 
-  `api/v1/finance/payment/allocate`
+  `api/v1/plans/allocate`
 
 * **Method:**
 

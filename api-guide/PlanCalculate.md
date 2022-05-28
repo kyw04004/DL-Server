@@ -5,11 +5,11 @@
 
 * **URL**
 
-  `api/v1/plan/calculate`
+  `api/v1/plans/calculate`
 
 * **Method:**
 
-  `PUT`
+  `PATCH`
   
 * **URL Params**
    

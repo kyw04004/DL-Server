@@ -5,7 +5,7 @@
 
 * **URL**
 
-  `api/v1/plan/delete/{planId}`
+  `api/v1/plans/{planId}`
 
 * **Method:**
 

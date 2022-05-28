@@ -5,7 +5,7 @@
 
 * **URL**
 
-  `api/v1/user/delete/{userId}`
+  `api/v1/users/{userId}`
 
 * **Method:**
 

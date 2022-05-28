@@ -5,7 +5,7 @@
 
 * **URL**
 
-  `api/v1/user/login`
+  `api/v1/users/login`
 
 * **Method:**
 

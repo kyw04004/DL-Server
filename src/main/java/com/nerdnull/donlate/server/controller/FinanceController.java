@@ -11,14 +11,12 @@ import com.nerdnull.donlate.server.service.PlanService;
 import com.nerdnull.donlate.server.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@RequestMapping("/api/v1/finance")
 @RestController
 @RequiredArgsConstructor
 @Slf4j
@@ -35,7 +33,7 @@ public class FinanceController {
      * @param request input(userId, bank, account, point, name)
      * @return String message
      */
-    @PostMapping("/exchange")
+    @PostMapping("/api/v1/users/exchange")
     public Response<String> exchange(@RequestBody ExchangeRequest request){
         try {
             request.isNotNull();
@@ -78,7 +76,7 @@ public class FinanceController {
      * @param userId input(user ID)
      * @return PaymentList info
      */
-    @GetMapping("/payment/{userId}/list")
+    @GetMapping("/api/v1/users/{userId}/payments")
     public Response <GetPaymentListResponse> getPaymentList(@PathVariable Long userId){
         try {
             if(userId == null) {
@@ -111,7 +109,7 @@ public class FinanceController {
      * @param request input(plan ID, allocate Option)
      * @return String message
      */
-    @PostMapping("/allocate")
+    @PostMapping("/api/v1/plans/allocate")
     public Response<String> allocate(@RequestBody AllocateRequest request){
         try {
             request.isNotNull();

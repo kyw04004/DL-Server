@@ -5,11 +5,11 @@
 
 * **URL**
 
-  `api/v1/plan/update`
+  `api/v1/plans`
 
 * **Method:**
 
-  `PUT`
+  `PATCH`
   
 * **URL Params**
    

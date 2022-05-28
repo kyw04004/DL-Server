@@ -5,7 +5,7 @@
 
 * **URL**
 
-  `api/v1/finance/exchange`
+  `api/v1/users/exchange`
 
 * **Method:**
 
