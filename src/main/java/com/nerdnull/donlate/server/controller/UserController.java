@@ -9,10 +9,9 @@ import com.nerdnull.donlate.server.service.PlanStateService;
 import com.nerdnull.donlate.server.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("/api/v1/user")
+@RequestMapping("/api/v1/users")
 @RestController
 @RequiredArgsConstructor
 @Slf4j
@@ -28,7 +27,7 @@ public class UserController {
      * @param userId input(user ID)
      * @return User Info
      */
-    @GetMapping("/details/{userId}")
+    @GetMapping("/{userId}")
     public Response <UserDetailResponse> getUser(@PathVariable Long userId){
         try {
             if(userId == null) {
@@ -36,8 +35,14 @@ public class UserController {
             }
 
             UserDto user = this.userService.getUser(userId);
-            UserDetailResponse response = new UserDetailResponse(user.getUserId(), user.getNickName(), user.getEmail(),
-                    user.getPoint(), user.getPlanStateList(), user.getPaymentList());
+            UserDetailResponse response = UserDetailResponse.builder()
+                    .userId(user.getUserId())
+                    .nickName(user.getNickName())
+                    .email(user.getEmail())
+                    .point(user.getPoint())
+                    .planStateList(user.getPlanStateList())
+                    .paymentList(user.getPaymentList())
+                    .build();
 
             return Response.ok(response);
         }
@@ -62,8 +67,11 @@ public class UserController {
     public Response<Long> login(@RequestBody LoginRequest request) {
         try {
             request.isNotNull();
-            UserDto user = new UserDto(null, request.getNickName(),
-                    request.getEmail(), null, null, null);
+            UserDto user = UserDto.builder()
+                    .nickName(request.getNickName())
+                    .email(request.getEmail())
+                    .build();
+
             return Response.ok(this.userService.login(user));
 
         }
@@ -84,7 +92,7 @@ public class UserController {
      * @param userId input(user id)
      * @return String message
      */
-    @DeleteMapping("/delete/{userId}")
+    @DeleteMapping("/{userId}")
     public Response<String> delete(@PathVariable Long userId) {
         try {
             if(userId == null) {

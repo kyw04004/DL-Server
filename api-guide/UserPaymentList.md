@@ -5,7 +5,7 @@
 
 * **URL**
 
-  `api/v1/finance/payment/{userId}/list`
+  `api/v1/users/{userId}/payments`
 
 * **Method:**
 

@@ -1,12 +1,14 @@
 package com.nerdnull.donlate.server.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.Date;
 
 @Data
 @AllArgsConstructor
+@Builder
 public class ExchangeDto {
 
     private Long exchangeId;

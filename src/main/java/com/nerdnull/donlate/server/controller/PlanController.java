@@ -20,7 +20,7 @@ import java.util.Date;
 import java.util.List;
 
 @Slf4j
-@RequestMapping("/api/v1/plan")
+@RequestMapping("/api/v1/plans")
 @RestController
 @RequiredArgsConstructor
 public class PlanController {
@@ -37,7 +37,7 @@ public class PlanController {
      * @param planRequest input(admin ID, deposit, latePercent, absentPercent, title, location, detailLocation, date, done)
      * @return String message
      */
-    @PostMapping("/create")
+    @PostMapping
     public Response<String> create(@RequestBody CreatePlanRequest planRequest) {
         try {
             planRequest.isNotNull();
@@ -69,7 +69,7 @@ public class PlanController {
      * @param updatePlanRequest input(plan ID, admin ID, deposit, latePercent, absentPercent, title, location, detailLocation, date, done)
      * @return String message
      */
-    @PutMapping("/update")
+    @PatchMapping
     public Response<String> update(@RequestBody UpdatePlanRequest updatePlanRequest) {
         try {
             updatePlanRequest.isNotNull();
@@ -93,7 +93,7 @@ public class PlanController {
      * @param planId input(plan ID)
      * @return String message
      */
-    @DeleteMapping(value = "/delete/{planId}")
+    @DeleteMapping(value = "/{planId}")
     public Response<String> delete(@PathVariable("planId") Long planId){
         try {
             if(planId==null) throw new IllegalArgumentException("planId could not be null");
@@ -152,7 +152,7 @@ public class PlanController {
      * @param body input(plan ID, userState<user ID, lateState>)
      * @return String message
      */
-    @PutMapping("/calculate")
+    @PatchMapping("/calculate")
     public Response<String>calculate(@RequestBody String body){
         try{
             CalculateParseDto cal = CalculateParse.parse(body);
@@ -181,7 +181,7 @@ public class PlanController {
      * @param planId input(plan ID)
      * @return Plan Info
      */
-    @GetMapping("/details/{planId}")
+    @GetMapping("/{planId}")
     public Response<PlanDetailResponse> getDetails(@PathVariable("planId") Long planId) {
         try {
             if(planId == null) throw new IllegalArgumentException("planId could not be null");
