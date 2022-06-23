@@ -28,32 +28,21 @@ public class UserController {
      * @return User Info
      */
     @GetMapping("/{userId}")
-    public Response <UserDetailResponse> getUser(@PathVariable Long userId){
-        try {
-            if(userId == null) {
-                throw new IllegalArgumentException("Bad Request /api/v1/user/<Long> userID");
-            }
+    public Response <UserDetailResponse> getUser(@PathVariable Long userId) {
+        if (userId == null) {
+            throw new IllegalArgumentException("Bad Request /api/v1/user/<Long> userID");
+        }
+        UserDto user = this.userService.getUser(userId);
+        UserDetailResponse response = UserDetailResponse.builder()
+                .userId(user.getUserId())
+                .nickName(user.getNickName())
+                .email(user.getEmail())
+                .point(user.getPoint())
+                .planStateList(user.getPlanStateList())
+                .paymentList(user.getPaymentList())
+                .build();
 
-            UserDto user = this.userService.getUser(userId);
-            UserDetailResponse response = UserDetailResponse.builder()
-                    .userId(user.getUserId())
-                    .nickName(user.getNickName())
-                    .email(user.getEmail())
-                    .point(user.getPoint())
-                    .planStateList(user.getPlanStateList())
-                    .paymentList(user.getPaymentList())
-                    .build();
-
-            return Response.ok(response);
-        }
-        catch (IllegalArgumentException e) {
-            log.error(e.getMessage(), e);
-            return Response.error(Response.BAD_REQUEST, e.getMessage());
-        }
-        catch (Exception e) {
-            log.error(e.getMessage(), e);
-            return Response.error(Response.INTERNAL_SERVER_ERROR, e.getMessage());
-        }
+        return Response.ok(response);
     }
 
     /**
@@ -64,25 +53,14 @@ public class UserController {
      * @return userID
      */
     @PostMapping("/login")
-    public Response<Long> login(@RequestBody LoginRequest request) {
-        try {
-            request.isNotNull();
-            UserDto user = UserDto.builder()
-                    .nickName(request.getNickName())
-                    .email(request.getEmail())
-                    .build();
+    public Response<Long> login(@RequestBody LoginRequest request) throws IllegalAccessException {
+        request.isNotNull();
+        UserDto user = UserDto.builder()
+                .nickName(request.getNickName())
+                .email(request.getEmail())
+                .build();
 
-            return Response.ok(this.userService.login(user));
-
-        }
-        catch (IllegalAccessException | IllegalArgumentException e) {
-            log.error(e.getMessage(), e);
-            return Response.error(Response.BAD_REQUEST, e.getMessage());
-        }
-        catch (Exception e) {
-            log.error(e.getMessage(), e);
-            return Response.error(Response.INTERNAL_SERVER_ERROR, e.getMessage());
-        }
+        return Response.ok(this.userService.login(user));
     }
 
     /**
@@ -94,23 +72,12 @@ public class UserController {
      */
     @DeleteMapping("/{userId}")
     public Response<String> delete(@PathVariable Long userId) {
-        try {
-            if(userId == null) {
-                throw new IllegalArgumentException("Bad Request /api/v1/user/<Long> userID");
-            }
-
-            this.paymentService.delete(userId);
-            this.planStateService.deleteByUserId(userId);
-            this.userService.delete(userId);
-            return Response.ok("Delete user");
+        if (userId == null) {
+            throw new IllegalArgumentException("Bad Request /api/v1/user/<Long> userID");
         }
-        catch (IllegalArgumentException e) {
-            log.error(e.getMessage(), e);
-            return Response.error(Response.BAD_REQUEST, e.getMessage());
-        }
-        catch (Exception e){
-            log.error(e.getMessage(), e);
-            return Response.error(Response.INTERNAL_SERVER_ERROR, e.getMessage());
-        }
+        this.paymentService.delete(userId);
+        this.planStateService.deleteByUserId(userId);
+        this.userService.delete(userId);
+        return Response.ok("Delete user");
     }
 }

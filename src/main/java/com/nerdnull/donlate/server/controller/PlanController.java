@@ -11,6 +11,7 @@ import com.nerdnull.donlate.server.service.PlanStateService;
 import com.nerdnull.donlate.server.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.json.simple.parser.ParseException;
 import org.springframework.web.bind.annotation.*;
 import com.nerdnull.donlate.server.controller.response.PlanDetailResponse;
 import com.nerdnull.donlate.server.controller.response.Response;
@@ -38,27 +39,17 @@ public class PlanController {
      * @return String message
      */
     @PostMapping
-    public Response<String> create(@RequestBody CreatePlanRequest planRequest) {
-        try {
-            planRequest.isNotNull();
-            planRequest.checkDeposit();
-            PlanDto savedPlan = this.planService.setPlan(planRequest);
-            log.info("checking getSavedPlanId : {}", savedPlan.getPlanId());
-            PlanStateDto planStateDto = PlanStateDto.builder()
-                    .planId(savedPlan.getPlanId())
-                    .userId(savedPlan.getAdmin())
-                    .lateState(LateState.NORMAL)
-                    .build();
-            this.planStateService.setPlanState(planStateDto);
-        }
-        catch (IllegalAccessException e) {
-            log.error(e.getMessage(), e);
-            return Response.error(Response.BAD_REQUEST, e.getMessage());
-        }
-        catch (Exception e){
-            log.error(e.getMessage(), e);
-            return Response.error(Response.INTERNAL_SERVER_ERROR, e.getMessage());
-        }
+    public Response<String> create(@RequestBody CreatePlanRequest planRequest) throws IllegalAccessException {
+        planRequest.isNotNull();
+        planRequest.checkDeposit();
+        PlanDto savedPlan = this.planService.setPlan(planRequest);
+        log.info("checking getSavedPlanId : {}", savedPlan.getPlanId());
+        PlanStateDto planStateDto = PlanStateDto.builder()
+                .planId(savedPlan.getPlanId())
+                .userId(savedPlan.getAdmin())
+                .lateState(LateState.NORMAL)
+                .build();
+        this.planStateService.setPlanState(planStateDto);
         return Response.ok("create plan complete!!");
     }
 
@@ -70,19 +61,9 @@ public class PlanController {
      * @return String message
      */
     @PatchMapping
-    public Response<String> update(@RequestBody UpdatePlanRequest updatePlanRequest) {
-        try {
-            updatePlanRequest.isNotNull();
-            this.planService.updatePlan(updatePlanRequest);
-        }
-        catch (IllegalAccessException e){
-            log.error(e.getMessage(), e);
-            return Response.error(Response.BAD_REQUEST, e.getMessage());
-        }
-        catch (Exception e){
-            log.error(e.getMessage(), e);
-            return Response.error(Response.INTERNAL_SERVER_ERROR, e.getMessage());
-        }
+    public Response<String> update(@RequestBody UpdatePlanRequest updatePlanRequest) throws IllegalAccessException {
+        updatePlanRequest.isNotNull();
+        this.planService.updatePlan(updatePlanRequest);
         return Response.ok("update plan complete");
     }
 
@@ -94,20 +75,10 @@ public class PlanController {
      * @return String message
      */
     @DeleteMapping(value = "/{planId}")
-    public Response<String> delete(@PathVariable("planId") Long planId){
-        try {
-            if(planId==null) throw new IllegalArgumentException("planId could not be null");
-            this.planStateService.deleteByPlanId(planId);
-            this.planService.deletePlan(planId);
-        }
-        catch (IllegalArgumentException e){
-            log.error(e.getMessage(), e);
-            return Response.error(Response.BAD_REQUEST, e.getMessage());
-        }
-        catch (Exception e){
-            log.error(e.getMessage(), e);
-            return Response.error(Response.INTERNAL_SERVER_ERROR, e.getMessage());
-        }
+    public Response<String> delete(@PathVariable("planId") Long planId) {
+        if (planId == null) throw new IllegalArgumentException("planId could not be null");
+        this.planStateService.deleteByPlanId(planId);
+        this.planService.deletePlan(planId);
         return Response.ok("delete complete!!");
     }
 
@@ -119,29 +90,19 @@ public class PlanController {
      * @return String message
      */
     @PostMapping("/join")
-    public Response<String> join(@RequestBody JoinRequest request){
-        try {
-            request.isNotNull();
-            PlanStateDto planStateDto = PlanStateDto.builder()
-                    .planId(request.getPlanId())
-                    .userId(request.getUserId())
-                    .lateState(LateState.NORMAL)
-                    .build();
-            this.planStateService.setPlanState(planStateDto);
+    public Response<String> join(@RequestBody JoinRequest request) throws Exception {
+        request.isNotNull();
+        PlanStateDto planStateDto = PlanStateDto.builder()
+                .planId(request.getPlanId())
+                .userId(request.getUserId())
+                .lateState(LateState.NORMAL)
+                .build();
+        this.planStateService.setPlanState(planStateDto);
 
-            this.userService.updatePoint(request.getUserId(), -request.getPoint());
+        this.userService.updatePoint(request.getUserId(), -request.getPoint());
 
-            PaymentDto payment = new PaymentDto(null, -request.getMoney(), -request.getPoint(), new Date(), request.getUserId(), null);
-            this.paymentService.add(payment);
-        }
-        catch (IllegalAccessException e){
-            log.error(e.getMessage(), e);
-            return Response.error(Response.BAD_REQUEST, e.getMessage());
-        }
-        catch (Exception e){
-            log.error(e.getMessage(), e);
-            return Response.error(Response.INTERNAL_SERVER_ERROR, e.getMessage());
-        }
+        PaymentDto payment = new PaymentDto(null, -request.getMoney(), -request.getPoint(), new Date(), request.getUserId(), null);
+        this.paymentService.add(payment);
         return Response.ok("join complete!!");
     }
 
@@ -153,23 +114,17 @@ public class PlanController {
      * @return String message
      */
     @PatchMapping("/calculate")
-    public Response<String>calculate(@RequestBody String body){
-        try{
-            CalculateParseDto cal = CalculateParse.parse(body);
-            PlanDto plan = this.planService.getDetails(cal.getPlanId());
-            List<PlanStateDto> planStateList = plan.getPlanStateList();
-            for (PlanStateDto p : planStateList) {
-                this.planStateService.setPlanState(PlanStateDto.builder()
-                                .planStateId(p.getPlanStateId())
-                                .planId(cal.getPlanId())
-                                .userId(p.getUserId())
-                                .lateState(cal.getUserState().get(p.getUserId()))
-                                .build());
-            }
-        }
-        catch (Exception e){
-            log.error(e.getMessage(), e);
-            return Response.error(Response.INTERNAL_SERVER_ERROR, e.getMessage());
+    public Response<String>calculate(@RequestBody String body) throws ParseException, IllegalAccessException {
+        CalculateParseDto cal = CalculateParse.parse(body);
+        PlanDto plan = this.planService.getDetails(cal.getPlanId());
+        List<PlanStateDto> planStateList = plan.getPlanStateList();
+        for (PlanStateDto p : planStateList) {
+            this.planStateService.setPlanState(PlanStateDto.builder()
+                    .planStateId(p.getPlanStateId())
+                    .planId(cal.getPlanId())
+                    .userId(p.getUserId())
+                    .lateState(cal.getUserState().get(p.getUserId()))
+                    .build());
         }
         return Response.ok("calculate complete!!");
     }
@@ -183,31 +138,21 @@ public class PlanController {
      */
     @GetMapping("/{planId}")
     public Response<PlanDetailResponse> getDetails(@PathVariable("planId") Long planId) {
-        try {
-            if(planId == null) throw new IllegalArgumentException("planId could not be null");
-            PlanDto plan = planService.getDetails(planId);
-            log.info("Success send planDetails");
-            return Response.ok(PlanDetailResponse.builder()
-                    .planId(plan.getPlanId())
-                    .admin(plan.getAdmin())
-                    .deposit(plan.getDeposit())
-                    .latePercent(plan.getLatePercent())
-                    .absentPercent(plan.getAbsentPercent())
-                    .title(plan.getTitle())
-                    .location(plan.getLocation())
-                    .detailLocation(plan.getDetailLocation())
-                    .date(plan.getDate())
-                    .done(plan.getDone())
-                    .planStateList(plan.getPlanStateList())
-                    .build());
-        }
-        catch (IllegalArgumentException e){
-            log.error(e.getMessage(), e);
-            return Response.error(Response.BAD_REQUEST, e.getMessage());
-        }
-        catch(Exception e) {
-            log.error(e.getMessage(), e);
-            return Response.error(Response.INTERNAL_SERVER_ERROR, e.getMessage());
-        }
+        if (planId == null) throw new IllegalArgumentException("planId could not be null");
+        PlanDto plan = planService.getDetails(planId);
+        log.info("Success send planDetails");
+        return Response.ok(PlanDetailResponse.builder()
+                .planId(plan.getPlanId())
+                .admin(plan.getAdmin())
+                .deposit(plan.getDeposit())
+                .latePercent(plan.getLatePercent())
+                .absentPercent(plan.getAbsentPercent())
+                .title(plan.getTitle())
+                .location(plan.getLocation())
+                .detailLocation(plan.getDetailLocation())
+                .date(plan.getDate())
+                .done(plan.getDone())
+                .planStateList(plan.getPlanStateList())
+                .build());
     }
 }
